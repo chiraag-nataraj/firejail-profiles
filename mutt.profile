@@ -21,7 +21,11 @@ noexec /tmp/
 # Enhance security
 
 private-bin sh,mutt,mutt_dotlock,bash,emacsclient,elinks,gpg,gpg-agent,pinentry
+
 # private-dev
+whitelist /dev/stdout
+whitelist /dev/stdin
+whitelist /dev/stderr
 
 private-etc Muttrc.d/,Muttrc,alternatives/,resolv.conf,ssl/,mime.types
 noroot
