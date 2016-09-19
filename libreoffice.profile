@@ -24,6 +24,6 @@ nogroups
 nosound
 ipc-namespace
 shell none
-net none
+# net none
 protocol unix
 seccomp
