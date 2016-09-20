@@ -26,6 +26,8 @@ private-bin sh,mutt,mutt_dotlock,bash,emacsclient,elinks,gpg,gpg-agent,pinentry
 whitelist /dev/stdout
 whitelist /dev/stdin
 whitelist /dev/stderr
+whitelist /dev/urandom
+whitelist /dev/random
 
 private-etc Muttrc.d/,Muttrc,alternatives/,resolv.conf,ssl/,mime.types
 noroot
