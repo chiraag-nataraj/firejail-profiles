@@ -15,7 +15,7 @@ whitelist ${HOME}/.openshot/
 whitelist ${HOME}/.gtkrc-2.0
 whitelist ${HOME}/.gtkrc.mine
 
-private-bin openshot,python,dbus-launch
+private-bin openshot,python
 private-dev
 whitelist /tmp/.X11-unix
 
