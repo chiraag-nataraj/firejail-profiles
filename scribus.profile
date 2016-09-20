@@ -16,7 +16,7 @@ whitelist ${HOME}/.gtkrc-2.0
 whitelist ${HOME}/.gtkrc.mine
 whitelist ${HOME}/.config/Trolltech.conf
 
-private-bin scribus,dbus-launch,gs
+private-bin scribus,gs
 private-dev
 whitelist /tmp/.X11-unix
 
