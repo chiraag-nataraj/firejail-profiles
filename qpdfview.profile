@@ -13,6 +13,14 @@ private-dev
 private-etc fonts,X11,alternatives
 private-bin qpdfview
 
+noexec ${HOME}
+noexec /tmp
+
 shell none
 seccomp
 caps.drop all
+noroot
+net none
+nogroups
+nosound
+ipc-namespace
