@@ -15,5 +15,6 @@ List of currently-supported programs:
 * QPDFView
 * Scribus
 * Skype
+* Synfig Studio
 * Virtualbox
 * Generic terminal emulator (the profile is called x-terminal-emulator because of the /etc/alternatives system in Debian)
