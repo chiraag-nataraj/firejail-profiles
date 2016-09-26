@@ -14,6 +14,9 @@ private-dev
 private-bin sh,libreoffice,dirname,grep,uname,ls,sed,pwd,basename,dbus-launch,dbus-send,fcitx-dbus-watcher,fcitx-remote
 private-etc libreoffice,fonts,passwd,alternatives,X11
 whitelist /tmp/.X11-unix
+whitelist /tmp/fcitx-socket-:0
+whitelist /tmp/fcitx_dbus_socket
+whitelist /tmp/dbus_session_socket
 
 noexec ${HOME}/
 noexec /tmp/

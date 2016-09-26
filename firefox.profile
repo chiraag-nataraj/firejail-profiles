@@ -35,7 +35,10 @@ whitelist /dev/tty
 whitelist /dev/urandom
 whitelist /dev/video0
 whitelist /dev/zero
-whitelist /tmp/.X11-unix
+whitelist /tmp/.X11-unix/
+whitelist /tmp/fcitx-socket-:0
+whitelist /tmp/fcitx_dbus_socket
+whitelist /tmp/dbus_session_socket
 
 noexec ${HOME}
 noexec /tmp
