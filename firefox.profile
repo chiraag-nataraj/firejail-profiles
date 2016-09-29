@@ -16,12 +16,13 @@ whitelist ${HOME}/.config/google-googletalkplugin/
 whitelist ${HOME}/.config/fcitx/
 whitelist ${HOME}/.gtkrc-2.0
 whitelist ${HOME}/.gtkrc.mine
+whitelist ${HOME}/.themes
 whitelist ${HOME}/.Xauthority
 whitelist ${HOME}/PDF/
 
 # Private directories
 
-private-bin iceweasel,firefox,which,sh,dbus-launch,dbus-send,fcitx-dbus-watcher,fcitx-remote,fcitx,env
+private-bin firefox,which,sh,dbus-launch,dbus-send,fcitx-dbus-watcher,fcitx-remote,fcitx,env
 private-etc hosts,passwd,mime.types,fonts/,mailcap,iceweasel/,xdg/,gtk-3.0/,resolv.conf,X11/,pulse/,alternatives/,localtime,nsswitch.conf
 whitelist /dev/dri
 whitelist /dev/full
