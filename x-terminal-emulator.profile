@@ -3,8 +3,8 @@ seccomp
 netfilter
 private-dev
 noroot
+nogroups
 net none
-protocol unix
 whitelist /tmp/user/1000/
 whitelist /tmp/.X11-unix/
 
