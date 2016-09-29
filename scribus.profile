@@ -22,6 +22,7 @@ whitelist /tmp/.X11-unix
 
 noroot
 protocol unix
+net none
 shell none
 seccomp
 caps.drop all
