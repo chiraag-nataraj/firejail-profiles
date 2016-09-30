@@ -6,7 +6,6 @@ whitelist ${HOME}/lmms
 whitelist /tmp/.X11-unix
 
 private-dev
-private-etc fonts
 
 noexec /home
 noexec /tmp
