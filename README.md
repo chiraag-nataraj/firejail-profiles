@@ -5,6 +5,7 @@ This is a collection of tighter firejail (https://github.com/netblue30/firejail)
 
 List of currently-supported programs:
 * Brackets
+* Cinelerra
 * Fetchmail
 * Firefox
 * Libreoffice
