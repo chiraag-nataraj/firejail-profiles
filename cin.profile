@@ -5,6 +5,7 @@ whitelist ${HOME}/Videos
 
 private-bin cin
 private-dev
+private-etc fonts,pulse
 
 whitelist /tmp/.X11-unix
 
