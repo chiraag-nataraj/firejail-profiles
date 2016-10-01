@@ -2,7 +2,7 @@ whitelist ${DOWNLOADS}
 whitelist ${HOME}/.synfig
 
 private-bin synfigstudio
-private-etc fonts,X11,synfig
+private-etc fonts,X11,synfig,synfig_modules.cfg
 private-dev
 whitelist /tmp/.X11-unix
 
