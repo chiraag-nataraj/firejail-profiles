@@ -9,6 +9,11 @@ whitelist ${HOME}/.mutt_cache
 whitelist ${HOME}/Mail
 whitelist ${HOME}/.gnupg
 
+blacklist /boot
+blacklist /media
+blacklist /mnt
+blacklist /opt
+
 # To store files
 whitelist ${HOME}/Downloads
 

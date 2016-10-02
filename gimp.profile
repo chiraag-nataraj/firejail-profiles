@@ -5,6 +5,11 @@ whitelist ${HOME}/.themes
 whitelist ${DOWNLOADS}
 whitelist ${HOME}/Pictures
 
+blacklist /boot
+blacklist /media
+blacklist /mnt
+blacklist /opt
+
 private-bin gimp,gimp-2.8,gimp-console,gimp-console-2.8,python2.7
 private-dev
 private-etc gimp,fonts

@@ -5,6 +5,7 @@ blacklist /usr/local/sbin
 blacklist /media
 blacklist /mnt
 blacklist /boot
+blacklist /opt
 
 # I use Downloads as my data transfer directory
 whitelist ${HOME}/Downloads/

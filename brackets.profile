@@ -7,6 +7,10 @@ whitelist ${HOME}/Documents
 whitelist /opt/brackets/
 whitelist /opt/google/
 
+blacklist /boot
+blacklist /media
+blacklist /mnt
+
 private-bin bash,brackets,readlink,dirname,google-chrome,cat
 private-dev
 whitelist /tmp/.X11-unix

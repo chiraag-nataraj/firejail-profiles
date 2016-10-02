@@ -5,6 +5,11 @@ whitelist ${HOME}/Mail
 whitelist ${HOME}/.procmailrc.gmail
 whitelist ${HOME}/.procmailrc.brown
 
+blacklist /boot
+blacklist /media
+blacklist /mnt
+blacklist /opt
+
 noroot
 private-dev
 caps.drop all

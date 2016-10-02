@@ -1,6 +1,11 @@
 whitelist ${DOWNLOADS}
 whitelist ${HOME}/.synfig
 
+blacklist /boot
+blacklist /media
+blacklist /mnt
+blacklist /opt
+
 private-bin synfigstudio
 private-etc fonts,X11,synfig,synfig_modules.cfg
 private-dev

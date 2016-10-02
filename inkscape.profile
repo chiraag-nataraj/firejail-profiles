@@ -5,6 +5,11 @@ whitelist ${HOME}/.themes
 whitelist ${DOWNLOADS}
 whitelist ${HOME}/Pictures
 
+blacklist /boot
+blacklist /media
+blacklist /mnt
+blacklist /opt
+
 private-bin inkscape
 private-dev
 private-etc fonts

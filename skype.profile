@@ -1,5 +1,11 @@
 whitelist ${HOME}/.Skype
 whitelist ${HOME}/Downloads
+
+blacklist /boot
+blacklist /media
+blacklist /mnt
+blacklist /opt
+
 noexec ${HOME}/
 noexec /tmp/
 caps.drop all

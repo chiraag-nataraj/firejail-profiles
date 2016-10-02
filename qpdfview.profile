@@ -9,6 +9,11 @@ whitelist ${HOME}/Documents
 
 whitelist ${HOME}/.config/qpdfview
 
+blacklist /boot
+blacklist /media
+blacklist /mnt
+blacklist /opt
+
 private-dev
 private-etc fonts,X11,alternatives
 private-bin qpdfview
