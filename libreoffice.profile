@@ -4,6 +4,7 @@ whitelist ${HOME}/.config/libreoffice
 whitelist ${HOME}/.config/gtk-3.0
 whitelist ${HOME}/.gtkrc-2.0
 whitelist ${HOME}/.gtkrc.mine
+whitelist ${HOME}/.themes
 
 blacklist /boot
 blacklist /media
