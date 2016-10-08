@@ -19,6 +19,7 @@ List of currently-supported programs:
 * Luminance HDR
 * MPD
 * Mutt
+* Natron (thanks @triceratops1!)
 * OpenShot
 * QPDFView
 * Scribus
