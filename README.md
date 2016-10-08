@@ -10,6 +10,7 @@ List of currently-supported programs:
 * Cinelerra
 * Fetchmail
 * Firefox
+* Flowblade
 * Google Earth
 * Libreoffice
 * Linphone
