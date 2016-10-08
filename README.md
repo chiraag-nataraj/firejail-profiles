@@ -13,6 +13,7 @@ List of currently-supported programs:
 * Flowblade
 * Google Chrome
 * Google Earth
+* Kdenlive
 * Libreoffice
 * Linphone
 * Luminance HDR
