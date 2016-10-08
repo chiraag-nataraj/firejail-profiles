@@ -11,6 +11,7 @@ List of currently-supported programs:
 * Fetchmail
 * Firefox
 * Flowblade
+* Google Chrome
 * Google Earth
 * Libreoffice
 * Linphone
