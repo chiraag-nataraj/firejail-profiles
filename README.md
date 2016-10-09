@@ -24,6 +24,7 @@ List of currently-supported programs:
 * OpenShot
 * QPDFView
 * Scribus
+* Shotcut
 * Skype
 * Synfig Studio
 * Virtualbox
