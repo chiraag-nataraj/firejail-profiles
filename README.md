@@ -28,3 +28,4 @@ List of currently-supported programs:
 * Synfig Studio
 * Virtualbox
 * Generic terminal emulator (the profile is called x-terminal-emulator because of the /etc/alternatives system in Debian)
+* Zart (thanks @triceratops1!)
