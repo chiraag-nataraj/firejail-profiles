@@ -8,6 +8,7 @@ List of currently-supported programs:
 * Brackets
 * Calligra
 * Cinelerra
+* Darktable
 * Fetchmail
 * Firefox
 * Flowblade
