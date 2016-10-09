@@ -18,6 +18,8 @@ whitelist /tmp/.X11-unix
 whitelist /tmp/fcitx-socket-:0
 whitelist /tmp/fcitx_dbus_socket
 whitelist /tmp/dbus_session_socket
+# Enable document recovery
+whitelist /tmp/user/1000
 
 noexec ${HOME}/
 noexec /tmp/
