@@ -17,6 +17,7 @@ List of currently-supported programs:
 * Kdenlive
 * Libreoffice
 * Linphone
+* LMMS
 * Luminance HDR
 * MPD
 * Mutt
