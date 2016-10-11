@@ -26,6 +26,7 @@ List of currently-supported programs:
 * Natron (thanks @triceratops1!)
 * OpenShot
 * QPDFView
+* Ricochet
 * Scribus
 * Shotcut
 * Skype
