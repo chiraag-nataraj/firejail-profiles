@@ -12,8 +12,10 @@ List of currently-supported programs:
 * Fetchmail
 * Firefox
 * Flowblade
+* GIMP
 * Google Chrome
 * Google Earth
+* Inkscape
 * Kdenlive
 * Libreoffice
 * Linphone
