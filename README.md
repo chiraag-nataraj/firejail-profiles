@@ -32,6 +32,7 @@ List of currently-supported programs:
 * Shotcut
 * Skype
 * Synfig Studio
+* Tor Browser Bundle (through the torbrowser-launcher package on Debian)
 * Virtualbox
 * Generic terminal emulator (the profile is called x-terminal-emulator because of the /etc/alternatives system in Debian)
 * Zart (thanks @triceratops1!)
