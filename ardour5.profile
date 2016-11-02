@@ -4,6 +4,8 @@ whitelist ${DOWNLOADS}
 whitelist ${HOME}/Documents
 whitelist ${HOME}/.config/ardour4
 whitelist ${HOME}/.config/ardour5
+whitelist ${HOME}/.lv2
+whitelist ${HOME}/.vst
 
 blacklist /boot
 blacklist /media
