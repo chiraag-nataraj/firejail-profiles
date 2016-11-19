@@ -23,6 +23,7 @@ List of currently-supported programs:
 * LMMS
 * Luminance HDR
 * MPD
+* MuPDF
 * Mutt
 * Natron (thanks @triceratops1!)
 * OpenShot
