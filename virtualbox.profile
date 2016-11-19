@@ -16,3 +16,6 @@ whitelist /dev/vboxdrv
 whitelist /dev/vboxdrvu
 whitelist /dev/vboxnetctl
 whitelist /dev/null
+whitelist /dev/dri
+whitelist /dev/sdc1
+whitelist /dev/sdc
