@@ -35,6 +35,7 @@ List of currently-supported programs:
 * Synfig Studio
 * Tor Browser Bundle (through the torbrowser-launcher package on Debian)
 * Tor Browser profile for Arch (thanks @robotanarchy!)
+* Viber
 * Virtualbox
 * Generic terminal emulator (the profile is called x-terminal-emulator because of the /etc/alternatives system in Debian)
 * Zart (thanks @triceratops1!)
