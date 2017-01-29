@@ -27,6 +27,7 @@ List of currently-supported programs:
 * Mutt
 * Natron (thanks @triceratops1!)
 * OpenShot
+* Pidgin
 * QPDFView
 * Ricochet
 * Scribus
