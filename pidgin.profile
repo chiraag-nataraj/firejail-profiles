@@ -8,6 +8,11 @@ whitelist ${HOME}/.themes
 whitelist ${HOME}/.pulse
 whitelist ${HOME}/.config/pulse
 
+blacklist /boot
+blacklist /media
+blacklist /mnt
+blacklist /opt
+
 private-bin pidgin
 private-dev
 private-etc X11,alternatives,resolv.conf,fonts,pulse
