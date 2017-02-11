@@ -2,6 +2,7 @@ caps.drop all
 seccomp
 netfilter
 private-dev
+ipc-namespace
 noroot
 nogroups
 net none
