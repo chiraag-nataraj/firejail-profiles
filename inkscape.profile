@@ -5,6 +5,7 @@ whitelist ${HOME}/.themes
 whitelist ${DOWNLOADS}
 whitelist ${HOME}/Pictures
 
+blacklist /usr/local/bin
 blacklist /boot
 blacklist /media
 blacklist /mnt
