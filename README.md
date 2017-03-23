@@ -6,6 +6,7 @@ This is a collection of tighter firejail (https://github.com/netblue30/firejail)
 List of currently-supported programs:
 * Ardour 5
 * Akregator
+* aMule
 * Blender
 * Brackets
 * Calligra
