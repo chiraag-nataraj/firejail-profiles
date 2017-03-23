@@ -8,6 +8,11 @@ whitelist ${HOME}/.themes
 whitelist ${HOME}/Pictures
 whitelist ${DOWNLOADS}
 
+blacklist /boot
+blacklist /media
+blacklist /mnt
+blacklist /opt
+
 private-bin imagej,bash,grep,sort,tail,tr,cut,whoami,hostname,uname,mkdir,ls,touch,free,awk,update-java-alternatives,basename,xprop,rm,ln
 private-dev
 # private-etc passwd,alternatives,hosts,fonts,X11
