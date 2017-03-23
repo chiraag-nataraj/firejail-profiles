@@ -18,6 +18,7 @@ List of currently-supported programs:
 * Google Chrome
 * Google Earth
 * Hugin
+* ImageJ
 * Inkscape
 * Kdenlive
 * Libreoffice
