@@ -1,5 +1,5 @@
-private-bin emp
-private-etc hosts,fonts,mailcap,resolv.conf,X11,pulse,alternatives,localtime,nsswitch.conf,ssl
+private-bin sh,dig,awk
+private-etc hosts,fonts,mailcap,resolv.conf,X11,pulse,alternatives,localtime,nsswitch.conf,ssl,proxychains.conf
 private-tmp
 
 whitelist /opt/viber

@@ -1,3 +1,6 @@
+blacklist /usr/local/bin
+blacklist /usr/local/sbin
+
 # Necessary to get Mutt working
 whitelist ${HOME}/.mutt
 whitelist ${HOME}/.muttrc
@@ -25,7 +28,7 @@ noexec /tmp/
 
 # Enhance security
 
-private-bin sh,mutt,mutt_dotlock,bash,emacsclient,elinks,gpg,gpg-agent,pinentry
+private-bin sh,mutt,mutt_dotlock,bash,emacsclient,elinks,gpg,gpg-agent,pinentry,dig,awk
 
 # private-dev
 whitelist /dev/stdout
@@ -34,8 +37,8 @@ whitelist /dev/stderr
 whitelist /dev/urandom
 whitelist /dev/random
 
-private-etc Muttrc.d/,Muttrc,alternatives/,resolv.conf,ssl/,mime.types
+private-etc Muttrc.d/,Muttrc,alternatives/,resolv.conf,ssl/,mime.types,proxychains.conf
 noroot
 caps.drop all
-seccomp.keep open,access,prctl,fstat,mmap,write,read,close,munmap,chown,unshare,fcntl,execve,brk,mprotect,arch_prctl,getpid,getuid,getgid,geteuid,getegid,rt_sigprocmask,rt_sigaction,uname,stat,getppid,getpgrp,getrlimit,getpeername,set_tid_address,set_robust_list,futex,getrusage,umask,ioctl,socket,connect,lseek,getsid,pipe,clone,dup2,wait4,openat,rt_sigreturn,getdents,exit_group,faccessat,lstat,pread64,pwrite64,ftruncate,select,unlink,mkdir,link,rmdir,alarm,readlink,sendto,fdatasync,recvfrom,chmod,getcwd,setrlimit,utime,mlock,clock_gettime,setresgid,chdir,fsync,nanosleep,poll,sendmmsg,bind,getsockname,recvmsg,writev,mremap,rename,truncate,sched_yield,sysinfo,kill,sendmsg,setresuid,setsid,listen,pselect6,accept,getsockopt,tgkill,madvise,exit,statfs,getrandom,fchmod,fchown,gettid
+seccomp.keep open,access,prctl,fstat,mmap,write,read,close,munmap,chown,unshare,fcntl,execve,brk,mprotect,arch_prctl,getpid,getuid,getgid,geteuid,getegid,rt_sigprocmask,rt_sigaction,uname,stat,getppid,getpgrp,getrlimit,getpeername,set_tid_address,set_robust_list,futex,getrusage,umask,ioctl,socket,connect,lseek,getsid,pipe,clone,dup2,wait4,openat,rt_sigreturn,getdents,exit_group,faccessat,lstat,pread64,pwrite64,ftruncate,select,unlink,mkdir,link,rmdir,alarm,readlink,sendto,fdatasync,recvfrom,chmod,getcwd,setrlimit,utime,mlock,clock_gettime,setresgid,chdir,fsync,nanosleep,poll,sendmmsg,bind,getsockname,recvmsg,writev,mremap,rename,truncate,sched_yield,sysinfo,kill,sendmsg,setresuid,setsid,listen,pselect6,accept,getsockopt,tgkill,madvise,exit,statfs,getrandom,fchmod,fchown,gettid,sigaltstack,epoll_create,getgroups,epoll_ctl,rt_sigsuspend,setsockopt,epoll_wait
 nogroups
