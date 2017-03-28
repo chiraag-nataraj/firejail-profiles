@@ -38,6 +38,7 @@ List of currently-supported programs:
 * Shotcut
 * Skype
 * Synfig Studio
+* Tor (experimental!)
 * Tor Browser Bundle (through the torbrowser-launcher package on Debian)
 * Tor Browser profile for Arch (thanks @robotanarchy!)
 * Viber
