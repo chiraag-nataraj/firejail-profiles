@@ -26,6 +26,7 @@ List of currently-supported programs:
 * Linphone
 * LMMS
 * Luminance HDR
+* Macrofusion
 * MPD
 * MuPDF
 * Mutt
