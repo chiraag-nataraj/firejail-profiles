@@ -12,6 +12,7 @@ List of currently-supported programs:
 * Calligra
 * Cinelerra
 * Darktable
+* Dia
 * Fetchmail
 * Firefox
 * Flowblade
