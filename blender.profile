@@ -10,7 +10,7 @@ blacklist /opt
 
 private-bin blender
 private-dev
-private-etc pulse
+private-etc pulse,fonts
 
 whitelist /tmp/.X11-unix
 
