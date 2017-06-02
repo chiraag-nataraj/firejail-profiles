@@ -36,3 +36,4 @@ noexec /tmp
 
 shell none
 ipc-namespace
+caps.keep sys_chroot,sys_admin
