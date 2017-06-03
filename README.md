@@ -48,4 +48,5 @@ List of currently-supported programs:
 * Viewnior
 * Virtualbox
 * Generic terminal emulator (the profile is called x-terminal-emulator because of the /etc/alternatives system in Debian)
+* Youtube-dl
 * Zart (thanks @triceratops1!)
