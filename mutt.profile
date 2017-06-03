@@ -23,12 +23,12 @@ whitelist ${HOME}/Downloads
 whitelist /tmp/user/1000/emacs1000/
 whitelist /tmp/user/1000/mutt1000/
 
-noexec ${HOME}/
-noexec /tmp/
+noexec ${HOME}
+noexec /tmp
 
 # Enhance security
 
-private-bin sh,mutt,mutt_dotlock,bash,emacsclient,elinks,gpg,gpg-agent,pinentry,dig,awk
+private-bin sh,dash,mutt,mutt_dotlock,bash,emacsclient,emacsclient.emacs25,elinks,gpg,gpg-agent,pinentry,dig,awk
 
 private-dev
 # whitelist /dev/stdout

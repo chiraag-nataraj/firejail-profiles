@@ -1,3 +1,6 @@
+blacklist /usr/local/bin
+blacklist /usr/local/sbin
+
 whitelist ${HOME}/Downloads
 whitelist ${HOME}/Documents
 whitelist ${HOME}/.config/libreoffice
@@ -12,7 +15,7 @@ blacklist /mnt
 blacklist /opt
 
 private-dev
-private-bin sh,libreoffice,dirname,grep,uname,ls,sed,pwd,basename,dbus-launch,dbus-send,fcitx-dbus-watcher,fcitx-remote
+private-bin sh,dash,libreoffice,dirname,grep,uname,ls,sed,pwd,basename,dbus-launch,dbus-send,fcitx-dbus-watcher,fcitx-remote
 private-etc libreoffice,fonts,passwd,alternatives,X11
 whitelist /tmp/.X11-unix
 whitelist /tmp/fcitx-socket-:0
@@ -21,8 +24,8 @@ whitelist /tmp/dbus_session_socket
 # Enable document recovery
 whitelist /tmp/user/1000
 
-noexec ${HOME}/
-noexec /tmp/
+noexec ${HOME}
+noexec /tmp
 
 caps.drop all
 noroot
