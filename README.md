@@ -16,6 +16,7 @@ List of currently-supported programs:
 * Fetchmail
 * Firefox
 * Flowblade
+* FreeCAD
 * GIMP
 * Google Chrome
 * Google Earth
