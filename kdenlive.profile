@@ -1,8 +1,8 @@
-whitelist ${HOME}/.config/
-whitelist ${HOME}/kdenlive
-
-whitelist ${DOWNLOADS}
-whitelist ${HOME}/Videos
+# Apparently these break kdenlive for some people - they work for me though?
+# whitelist ${HOME}/.config/
+# whitelist ${HOME}/kdenlive
+# whitelist ${DOWNLOADS}
+# whitelist ${HOME}/Videos
 
 blacklist /boot
 blacklist /media
