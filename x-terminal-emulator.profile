@@ -6,7 +6,9 @@ ipc-namespace
 noroot
 nogroups
 net none
-whitelist /tmp/user/1000/
-whitelist /tmp/.X11-unix/
-
 noexec /tmp
+whitelist /tmp/user/1000/
+whitelist /tmp/.X11-unix/X470
+whitelist /tmp/fcitx-socket-:0
+
+env DISPLAY=:470

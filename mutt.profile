@@ -26,6 +26,8 @@ whitelist /tmp/user/1000/mutt1000/
 noexec ${HOME}
 noexec /tmp
 
+env DISPLAY=:480
+
 # Enhance security
 
 private-bin sh,dash,mutt,mutt_dotlock,bash,emacsclient,emacsclient.emacs25,elinks,gpg,gpg-agent,pinentry,dig,awk

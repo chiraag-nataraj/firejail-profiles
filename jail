@@ -1,0 +1,6 @@
+#!/bin/sh
+
+DISP="$1"
+COM="$2"
+
+xpra start $DISP --start-child="$COM" --exit-with-children=yes --attach=yes
