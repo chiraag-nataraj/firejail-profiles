@@ -1,17 +1,31 @@
-whitelist ${DOWNLOADS}
-
-whitelist ${HOME}/.purple
-whitelist ${HOME}/.config/gtk-3.0
-whitelist ${HOME}/.gtkrc-2.0
-whitelist ${HOME}/.gtkrc.mine
-whitelist ${HOME}/.themes
-whitelist ${HOME}/.pulse
-whitelist ${HOME}/.config/pulse
+# Firejail profile for pidgin
+# This file is overwritten after every install/update
+# Persistent local customizations
+include /etc/firejail/pidgin.local
+# Persistent global definitions
+include /etc/firejail/globals.local
 
 blacklist /boot
 blacklist /media
 blacklist /mnt
 blacklist /opt
+
+whitelist ${DOWNLOADS}
+whitelist ${HOME}/.config/gtk-3.0
+whitelist ${HOME}/.config/pulse
+whitelist ${HOME}/.gtkrc-2.0
+whitelist ${HOME}/.gtkrc.mine
+whitelist ${HOME}/.pulse
+whitelist ${HOME}/.purple
+whitelist ${HOME}/.themes
+include /etc/firejail/whitelist-common.inc
+
+caps.drop all
+ipc-namespace
+nogroups
+noroot
+seccomp
+shell none
 
 private-bin pidgin
 private-dev
@@ -20,10 +34,3 @@ private-tmp
 
 noexec ${HOME}
 noexec /tmp
-
-shell none
-caps.drop all
-seccomp
-noroot
-nogroups
-ipc-namespace
