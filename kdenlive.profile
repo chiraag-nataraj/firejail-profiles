@@ -10,7 +10,13 @@ blacklist /media
 blacklist /mnt
 blacklist /opt
 
+# Apparently these break kdenlive for some people - they work for me though?
+# whitelist ${DOWNLOADS}
+# whitelist ${HOME}/.config/
+# whitelist ${HOME}/Videos
+# whitelist ${HOME}/kdenlive
 whitelist /tmp/.X11-unix
+# DBus is forced to use an ordinary unix socket
 whitelist /tmp/dbus_session_socket
 include /etc/firejail/whitelist-common.inc
 
@@ -24,11 +30,3 @@ shell none
 private-bin kdenlive,kdenlive_render,dbus-launch,melt,ffmpeg,ffplay,ffprobe,dvdauthor,genisoimage,vlc,xine,kdeinit5,kshell5,kdeinit5_shutdown,kdeinit5_wrapper,kdeinit4,kshell4,kdeinit4_shutdown,kdeinit4_wrapper
 private-dev
 private-etc fonts,alternatives,X11,pulse,passwd
-
-# CLOBBERED COMMENTS
-# Apparently these break kdenlive for some people - they work for me though?
-# I have forced DBus to use an ordinary unix socket
-# whitelist ${DOWNLOADS}
-# whitelist ${HOME}/.config/
-# whitelist ${HOME}/Videos
-# whitelist ${HOME}/kdenlive

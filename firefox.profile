@@ -44,6 +44,7 @@ include /etc/firejail/whitelist-common.inc
 
 caps.drop all
 noroot
+# protocol unix,inet,inet6
 seccomp
 shell none
 
@@ -52,9 +53,3 @@ private-etc hosts,passwd,mime.types,fonts/,mailcap,iceweasel/,xdg/,gtk-3.0/,reso
 
 noexec ${HOME}
 noexec /tmp
-
-# CLOBBERED COMMENTS
-# Blacklist/Whitelist
-# Miscellaneous options
-# Private directories
-# protocol unix,inet,inet6

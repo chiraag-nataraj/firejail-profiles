@@ -10,6 +10,8 @@ blacklist /media
 blacklist /mnt
 blacklist /opt
 
+# Location of your fetchmailrc - I decrypt it into /tmp/fetchmailrc
+# whitelist ${HOME}/.fetchmailrc.gpg
 whitelist ${HOME}/.procmailrc.brown
 whitelist ${HOME}/.procmailrc.gmail
 whitelist ${HOME}/Mail
@@ -27,7 +29,3 @@ x11 none
 # private-bin fetchmail,procmail,bash,chmod
 private-dev
 # private-etc passwd,hosts,resolv.conf
-
-# CLOBBERED COMMENTS
-# # Location of your fetchmailrc - I decrypt it into /tmp/fetchmailrc
-# whitelist ${HOME}/.fetchmailrc.gpg

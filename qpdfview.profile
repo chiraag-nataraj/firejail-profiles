@@ -31,7 +31,3 @@ private-etc fonts,X11,alternatives
 
 noexec ${HOME}
 noexec /tmp
-
-# CLOBBERED COMMENTS
-# #
-# # Add other whitelisted directories here if desired

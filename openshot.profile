@@ -28,8 +28,3 @@ shell none
 
 private-bin openshot,python
 private-dev
-
-# CLOBBERED COMMENTS
-# Blacklist/Whitelist
-# Config files
-# I use Downloads as my data transfer directory

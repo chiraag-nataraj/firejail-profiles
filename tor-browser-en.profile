@@ -33,12 +33,9 @@ seccomp
 shell none
 
 private-bin bash,grep,sed,tail,tor-browser-en,env,id,readlink,dirname,test,mkdir,ln,sed,cp,rm,getconf,file,expr
+# FIXME: Spoof D-Bus machine id (tor-browser segfaults when it is missing!)
+# https://github.com/netblue30/firejail/issues/955
 private-etc X11,pulse,machine-id
 private-tmp
 
 noexec /tmp
-
-# CLOBBERED COMMENTS
-# FIXME: Spoof D-Bus machine id (tor-browser segfaults when it is missing!)
-# https://aur.archlinux.org/packages/tor-browser-en/
-# https://github.com/netblue30/firejail/issues/955

@@ -5,6 +5,7 @@ include /etc/firejail/zart.local
 # Persistent global definitions
 include /etc/firejail/globals.local
 
+# Contributed by triceratops1 (https://github.com/triceratops1)
 
 whitelist ${DOWNLOADS}
 whitelist ${HOME}/Videos
@@ -24,6 +25,3 @@ private-etc fonts,X11
 
 noexec ${HOME}
 noexec /tmp
-
-# CLOBBERED COMMENTS
-# # Contributed by triceratops1 (https://github.com/triceratops1)

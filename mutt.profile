@@ -22,6 +22,11 @@ whitelist ${HOME}/.signatures
 whitelist ${HOME}/Downloads
 whitelist ${HOME}/Mail
 whitelist ${HOME}/sent
+# whitelist /dev/random
+# whitelist /dev/stderr
+# whitelist /dev/stdin                                                                     
+# whitelist /dev/stdout
+# whitelist /dev/urandom
 whitelist /tmp/user/1000/emacs1000/
 whitelist /tmp/user/1000/mutt1000/
 include /etc/firejail/whitelist-common.inc
@@ -38,13 +43,3 @@ private-etc Muttrc.d/,Muttrc,alternatives/,resolv.conf,ssl/,mime.types,proxychai
 
 noexec ${HOME}
 noexec /tmp
-
-# CLOBBERED COMMENTS
-# Enhance security
-# Necessary to get Mutt working
-# To store files
-# whitelist /dev/random
-# whitelist /dev/stderr
-# whitelist /dev/stdin
-# whitelist /dev/stdout
-# whitelist /dev/urandom

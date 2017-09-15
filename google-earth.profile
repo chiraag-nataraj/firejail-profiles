@@ -30,7 +30,3 @@ private-etc fonts,resolv.conf,X11,alternatives,pulse
 
 noexec /home
 noexec /tmp
-
-# CLOBBERED COMMENTS
-# Config file directory
-# Hack to automatically discard the lock file

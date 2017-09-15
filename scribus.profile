@@ -29,8 +29,3 @@ shell none
 
 private-bin scribus,gs
 private-dev
-
-# CLOBBERED COMMENTS
-# Blacklist/Whitelist
-# Config files
-# I use Downloads as my data transfer directory

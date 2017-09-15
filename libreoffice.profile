@@ -23,6 +23,7 @@ whitelist /tmp/.X11-unix
 whitelist /tmp/dbus_session_socket
 whitelist /tmp/fcitx-socket-:0
 whitelist /tmp/fcitx_dbus_socket
+# Enable document recovery
 whitelist /tmp/user/1000
 include /etc/firejail/whitelist-common.inc
 
@@ -42,6 +43,3 @@ private-etc libreoffice,fonts,passwd,alternatives,X11
 
 noexec ${HOME}
 noexec /tmp
-
-# CLOBBERED COMMENTS
-# Enable document recovery

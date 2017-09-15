@@ -5,6 +5,8 @@ include /etc/firejail/natron.local
 # Persistent global definitions
 include /etc/firejail/globals.local
 
+# Contributed by triceratops1 (https://github.com/triceratops1)
+
 blacklist /boot
 blacklist /media
 blacklist /mnt
@@ -30,6 +32,3 @@ private-etc fonts,X11,pulse
 
 noexec ${HOME}
 noexec /tmp
-
-# CLOBBERED COMMENTS
-# # Contributed by triceratops1 (https://github.com/triceratops1)
