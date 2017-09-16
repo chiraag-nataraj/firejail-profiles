@@ -1,27 +1,30 @@
-# Blacklist/Whitelist
+# Firejail profile for openshot
+# This file is overwritten after every install/update
+# Persistent local customizations
+include /etc/firejail/openshot.local
+# Persistent global definitions
+include /etc/firejail/globals.local
 
-blacklist /usr/local/bin
-blacklist /usr/local/sbin
+blacklist /boot
 blacklist /media
 blacklist /mnt
-blacklist /boot
 blacklist /opt
+blacklist /usr/local/bin
+blacklist /usr/local/sbin
 
-# I use Downloads as my data transfer directory
-whitelist ${HOME}/Downloads/
-whitelist ${HOME}/Videos/
-
-# Config files
-whitelist ${HOME}/.openshot/
 whitelist ${HOME}/.gtkrc-2.0
 whitelist ${HOME}/.gtkrc.mine
+whitelist ${HOME}/.openshot/
+whitelist ${HOME}/Downloads/
+whitelist ${HOME}/Videos/
+whitelist /tmp/.X11-unix
+include /etc/firejail/whitelist-common.inc
+
+caps.drop all
+noroot
+protocol unix
+seccomp
+shell none
 
 private-bin openshot,python
 private-dev
-whitelist /tmp/.X11-unix
-
-noroot
-protocol unix
-shell none
-seccomp
-caps.drop all
