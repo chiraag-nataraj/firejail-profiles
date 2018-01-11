@@ -31,6 +31,7 @@ List of currently-supported programs:
 * LMMS
 * Luminance HDR
 * Macrofusion
+* Messenger For Desktop
 * MPD
 * MuPDF
 * Mutt
@@ -41,14 +42,18 @@ List of currently-supported programs:
 * Ricochet
 * Scribus
 * Shotcut
+* Signal Desktop
 * Skype
+* Slack Desktop
 * Synfig Studio
+* Telegram Desktop
 * Tor (experimental!)
 * Tor Browser Bundle (through the torbrowser-launcher package on Debian)
 * Tor Browser profile for Arch (thanks @robotanarchy!)
 * Viber
 * Viewnior
 * Virtualbox
+* WhatsApp Web (application generated with https://github.com/jiahaog/nativefier)
 * Generic terminal emulator (the profile is called x-terminal-emulator because of the /etc/alternatives system in Debian)
 * Youtube-dl
 * Zart (thanks @triceratops1!)
