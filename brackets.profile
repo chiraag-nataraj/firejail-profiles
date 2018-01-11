@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-include /etc/firejail/globals.local
-
-=======
 # Firejail profile for brackets
 # This file is overwritten after every install/update
 # Persistent local customizations
@@ -14,7 +10,6 @@ blacklist /media
 blacklist /mnt
 
 whitelist ${DOWNLOADS}
->>>>>>> 7bf44969dff7201d9239c0a606510cc67ed688db
 whitelist ${HOME}/.config/Brackets
 whitelist ${HOME}/.gtkrc-2.0
 whitelist ${HOME}/.themes
