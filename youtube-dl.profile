@@ -1,19 +1,9 @@
-<<<<<<< HEAD
-include /etc/firejail/globals.local
-
-blacklist /usr/local/bin
-blacklist /usr/local/sbin
-
-whitelist ${HOME}/Videos
-whitelist ${DOWNLOADS}
-=======
 # Firejail profile for youtube-dl
 # This file is overwritten after every install/update
 # Persistent local customizations
 include /etc/firejail/youtube-dl.local
 # Persistent global definitions
 include /etc/firejail/globals.local
->>>>>>> 7bf44969dff7201d9239c0a606510cc67ed688db
 
 blacklist /boot
 blacklist /media

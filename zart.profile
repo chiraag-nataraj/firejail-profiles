@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-include /etc/firejail/globals.local
-
-## Contributed by triceratops1 (https://github.com/triceratops1)
-=======
 # Firejail profile for zart
 # This file is overwritten after every install/update
 # Persistent local customizations
@@ -11,7 +6,6 @@ include /etc/firejail/zart.local
 include /etc/firejail/globals.local
 
 # Contributed by triceratops1 (https://github.com/triceratops1)
->>>>>>> 7bf44969dff7201d9239c0a606510cc67ed688db
 
 whitelist ${DOWNLOADS}
 whitelist ${HOME}/Videos

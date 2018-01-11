@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-include /etc/firejail/globals.local
-
-=======
 # Firejail profile for ardour5
 # This file is overwritten after every install/update
 # Persistent local customizations
@@ -13,7 +9,7 @@ blacklist /boot
 blacklist /media
 blacklist /mnt
 blacklist /opt
->>>>>>> 7bf44969dff7201d9239c0a606510cc67ed688db
+
 blacklist /usr/local/bin
 
 whitelist ${DOWNLOADS}

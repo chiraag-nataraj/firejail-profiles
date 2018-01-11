@@ -1,19 +1,9 @@
-<<<<<<< HEAD
-include /etc/firejail/globals.local
-
-# Apparently these break kdenlive for some people - they work for me though?
-# whitelist ${HOME}/.config/
-# whitelist ${HOME}/kdenlive
-# whitelist ${DOWNLOADS}
-# whitelist ${HOME}/Videos
-=======
 # Firejail profile for kdenlive
 # This file is overwritten after every install/update
 # Persistent local customizations
 include /etc/firejail/kdenlive.local
 # Persistent global definitions
 include /etc/firejail/globals.local
->>>>>>> 7bf44969dff7201d9239c0a606510cc67ed688db
 
 blacklist /boot
 blacklist /media

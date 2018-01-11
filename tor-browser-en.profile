@@ -1,16 +1,9 @@
-<<<<<<< HEAD
-include /etc/firejail/globals.local
-
-# Firejail profile for tor-browser-en from the Arch User Repository:
-# https://aur.archlinux.org/packages/tor-browser-en/
-=======
 # Firejail profile for tor-browser-en
 # This file is overwritten after every install/update
 # Persistent local customizations
 include /etc/firejail/tor-browser-en.local
 # Persistent global definitions
 include /etc/firejail/globals.local
->>>>>>> 7bf44969dff7201d9239c0a606510cc67ed688db
 
 blacklist /boot
 blacklist /media

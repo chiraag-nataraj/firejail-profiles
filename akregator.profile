@@ -1,19 +1,9 @@
-<<<<<<< HEAD
-include /etc/firejail/globals.local
-
-blacklist /usr/local/bin
-blacklist /usr/local/sbin
-
-whitelist ${HOME}/.config/
-whitelist ${HOME}/.local/share/akregator/
-=======
 # Firejail profile for akregator
 # This file is overwritten after every install/update
 # Persistent local customizations
 include /etc/firejail/akregator.local
 # Persistent global definitions
 include /etc/firejail/globals.local
->>>>>>> 7bf44969dff7201d9239c0a606510cc67ed688db
 
 blacklist /boot
 blacklist /media

@@ -1,16 +1,9 @@
-<<<<<<< HEAD
-include /etc/firejail/globals.local
-
-blacklist /usr/local/bin
-blacklist /usr/local/sbin
-=======
 # Firejail profile for google-chrome
 # This file is overwritten after every install/update
 # Persistent local customizations
 include /etc/firejail/google-chrome.local
 # Persistent global definitions
 include /etc/firejail/globals.local
->>>>>>> 7bf44969dff7201d9239c0a606510cc67ed688db
 
 blacklist /boot
 blacklist /media

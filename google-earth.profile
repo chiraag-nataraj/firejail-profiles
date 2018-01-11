@@ -1,15 +1,9 @@
-<<<<<<< HEAD
-include /etc/firejail/globals.local
-
-# Hack to automatically discard the lock file
-=======
 # Firejail profile for google-earth
 # This file is overwritten after every install/update
 # Persistent local customizations
 include /etc/firejail/google-earth.local
 # Persistent global definitions
 include /etc/firejail/globals.local
->>>>>>> 7bf44969dff7201d9239c0a606510cc67ed688db
 
 blacklist /boot
 blacklist /media

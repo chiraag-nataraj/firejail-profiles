@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-include /etc/firejail/globals.local
-
-=======
 # Firejail profile for viewnior
 # This file is overwritten after every install/update
 # Persistent local customizations
@@ -9,8 +5,6 @@ include /etc/firejail/viewnior.local
 # Persistent global definitions
 include /etc/firejail/globals.local
 
-
->>>>>>> 7bf44969dff7201d9239c0a606510cc67ed688db
 whitelist ${DOWNLOADS}
 whitelist ${HOME}/.config/viewnior
 whitelist ${HOME}/.gtkrc-2.0

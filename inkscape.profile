@@ -1,17 +1,9 @@
-<<<<<<< HEAD
-include /etc/firejail/globals.local
-
-whitelist ${HOME}/.config/inkscape
-whitelist ${HOME}/.gtkrc-2.0
-whitelist ${HOME}/.themes
-=======
 # Firejail profile for inkscape
 # This file is overwritten after every install/update
 # Persistent local customizations
 include /etc/firejail/inkscape.local
 # Persistent global definitions
 include /etc/firejail/globals.local
->>>>>>> 7bf44969dff7201d9239c0a606510cc67ed688db
 
 blacklist /boot
 blacklist /media

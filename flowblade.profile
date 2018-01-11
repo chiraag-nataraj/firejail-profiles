@@ -1,18 +1,9 @@
-<<<<<<< HEAD
-include /etc/firejail/globals.local
-
-whitelist ${HOME}/.flowblade
-whitelist ${HOME}/.themes
-whitelist ${HOME}/.config/gtk-3.0
-whitelist ${HOME}/.config/flowblade
-=======
 # Firejail profile for flowblade
 # This file is overwritten after every install/update
 # Persistent local customizations
 include /etc/firejail/flowblade.local
 # Persistent global definitions
 include /etc/firejail/globals.local
->>>>>>> 7bf44969dff7201d9239c0a606510cc67ed688db
 
 blacklist /boot
 blacklist /media
