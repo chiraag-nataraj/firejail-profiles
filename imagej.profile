@@ -1,29 +1,39 @@
+<<<<<<< HEAD
 include /etc/firejail/globals.local
 
-blacklist /usr/local/bin
-blacklist /usr/local/sbin
-
-whitelist ${HOME}/.imagej
-whitelist ${HOME}/.gtkrc-2.0
-whitelist ${HOME}/.gtkrc.mine
-whitelist ${HOME}/.themes
-whitelist ${HOME}/Pictures
-whitelist ${DOWNLOADS}
+=======
+# Firejail profile for imagej
+# This file is overwritten after every install/update
+# Persistent local customizations
+include /etc/firejail/imagej.local
+# Persistent global definitions
+include /etc/firejail/globals.local
 
 blacklist /boot
 blacklist /media
 blacklist /mnt
 blacklist /opt
+>>>>>>> 7bf44969dff7201d9239c0a606510cc67ed688db
+blacklist /usr/local/bin
+blacklist /usr/local/sbin
+
+whitelist ${DOWNLOADS}
+whitelist ${HOME}/.gtkrc-2.0
+whitelist ${HOME}/.gtkrc.mine
+whitelist ${HOME}/.imagej
+whitelist ${HOME}/.themes
+whitelist ${HOME}/Pictures
+include /etc/firejail/whitelist-common.inc
+
+caps.drop all
+ipc-namespace
+net none
+nogroups
+nonewprivs
+noroot
+seccomp
 
 private-bin imagej,bash,grep,sort,tail,tr,cut,whoami,hostname,uname,mkdir,ls,touch,free,awk,update-java-alternatives,basename,xprop,rm,ln
 private-dev
 # private-etc passwd,alternatives,hosts,fonts,X11
 private-tmp
-
-net none
-seccomp
-caps.drop all
-noroot
-nonewprivs
-nogroups
-ipc-namespace

@@ -1,16 +1,36 @@
+<<<<<<< HEAD
 include /etc/firejail/globals.local
 
+=======
+# Firejail profile for freecad
+# This file is overwritten after every install/update
+# Persistent local customizations
+include /etc/firejail/freecad.local
+# Persistent global definitions
+include /etc/firejail/globals.local
+
+blacklist /boot
+blacklist /media
+blacklist /mnt
+blacklist /opt
+>>>>>>> 7bf44969dff7201d9239c0a606510cc67ed688db
 blacklist /usr/local/bin
 blacklist /usr/local/sbin
 
 whitelist ${DOWNLOADS}
 whitelist ${HOME}/.config/FreeCAD
 whitelist ${HOME}/Documents
+include /etc/firejail/whitelist-common.inc
 
-blacklist /boot
-blacklist /media
-blacklist /mnt
-blacklist /opt
+caps.drop all
+ipc-namespace
+net none
+nogroups
+noroot
+nosound
+protocol unix
+seccomp
+shell none
 
 private-bin freecad,freecadcmd
 private-dev
@@ -19,13 +39,3 @@ private-tmp
 
 noexec ${HOME}
 noexec /tmp
-
-caps.drop all
-noroot
-nogroups
-nosound
-ipc-namespace
-shell none
-net none
-protocol unix
-seccomp

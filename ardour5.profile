@@ -1,18 +1,36 @@
+<<<<<<< HEAD
 include /etc/firejail/globals.local
 
-blacklist /usr/local/bin
-
-whitelist ${DOWNLOADS}
-whitelist ${HOME}/Documents
-whitelist ${HOME}/.config/ardour4
-whitelist ${HOME}/.config/ardour5
-whitelist ${HOME}/.lv2
-whitelist ${HOME}/.vst
+=======
+# Firejail profile for ardour5
+# This file is overwritten after every install/update
+# Persistent local customizations
+include /etc/firejail/ardour5.local
+# Persistent global definitions
+include /etc/firejail/globals.local
 
 blacklist /boot
 blacklist /media
 blacklist /mnt
 blacklist /opt
+>>>>>>> 7bf44969dff7201d9239c0a606510cc67ed688db
+blacklist /usr/local/bin
+
+whitelist ${DOWNLOADS}
+whitelist ${HOME}/.config/ardour4
+whitelist ${HOME}/.config/ardour5
+whitelist ${HOME}/.lv2
+whitelist ${HOME}/.vst
+whitelist ${HOME}/Documents
+include /etc/firejail/whitelist-common.inc
+
+caps.drop all
+ipc-namespace
+net none
+nogroups
+noroot
+seccomp
+shell none
 
 private-bin sh,ardour5,ardour5-copy-mixer,ardour5-export,ardour5-fix_bbtppq,grep,sed,ldd,nm
 private-dev
@@ -21,11 +39,3 @@ private-tmp
 
 noexec /home
 noexec /tmp
-
-shell none
-seccomp
-caps.drop all
-net none
-noroot
-nogroups
-ipc-namespace

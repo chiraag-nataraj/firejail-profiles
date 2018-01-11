@@ -1,24 +1,37 @@
+<<<<<<< HEAD
 include /etc/firejail/globals.local
 
 whitelist ${DOWNLOADS}
 whitelist ${HOME}/.synfig
+=======
+# Firejail profile for synfigstudio
+# This file is overwritten after every install/update
+# Persistent local customizations
+include /etc/firejail/synfigstudio.local
+# Persistent global definitions
+include /etc/firejail/globals.local
+>>>>>>> 7bf44969dff7201d9239c0a606510cc67ed688db
 
 blacklist /boot
 blacklist /media
 blacklist /mnt
 blacklist /opt
 
-private-bin synfigstudio
-private-etc fonts,X11,synfig,synfig_modules.cfg
-private-dev
+whitelist ${DOWNLOADS}
+whitelist ${HOME}/.synfig
 whitelist /tmp/.X11-unix
+include /etc/firejail/whitelist-common.inc
+
+caps.drop all
+ipc-namespace
+net none
+noroot
+seccomp
+shell none
+
+private-bin synfigstudio
+private-dev
+private-etc fonts,X11,synfig,synfig_modules.cfg
 
 noexec ${HOME}
 noexec /tmp
-
-shell none
-noroot
-ipc-namespace
-net none
-seccomp
-caps.drop all
