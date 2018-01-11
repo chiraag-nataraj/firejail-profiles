@@ -1,3 +1,5 @@
+include /etc/firejail/globals.local
+
 whitelist ${HOME}/.bcast5
 
 whitelist ${DOWNLOADS}

@@ -1,3 +1,5 @@
+include /etc/firejail/globals.local
+
 whitelist ${DOWNLOADS}
 whitelist ${HOME}/Pictures
 whitelist ${HOME}/.gtkrc-2.0

@@ -1,3 +1,5 @@
+include /etc/firejail/globals.local
+
 whitelist ${HOME}/Pictures
 whitelist ${DOWNLOADS}
 whitelist ${HOME}/.config/gtk-3.0

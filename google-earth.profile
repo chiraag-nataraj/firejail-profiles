@@ -1,3 +1,5 @@
+include /etc/firejail/globals.local
+
 # Hack to automatically discard the lock file
 
 whitelist ${HOME}/.googleearth/Cache/

@@ -1,3 +1,5 @@
+include /etc/firejail/globals.local
+
 ## Contributed by triceratops1 (https://github.com/triceratops1)
 
 blacklist /usr/local/bin

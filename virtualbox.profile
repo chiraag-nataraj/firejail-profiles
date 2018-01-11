@@ -1,3 +1,5 @@
+include /etc/firejail/globals.local
+
 caps.drop all
 
 whitelist ${HOME}/Downloads

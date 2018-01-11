@@ -1,3 +1,5 @@
+include /etc/firejail/globals.local
+
 blacklist /usr/local/bin
 
 whitelist ${DOWNLOADS}

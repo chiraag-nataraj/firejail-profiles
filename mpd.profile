@@ -1,3 +1,5 @@
+include /etc/firejail/globals.local
+
 whitelist ${HOME}/Music
 whitelist ${HOME}/mpd
 whitelist ${HOME}/.mpdconf

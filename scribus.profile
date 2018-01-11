@@ -1,3 +1,5 @@
+include /etc/firejail/globals.local
+
 # Blacklist/Whitelist
 
 blacklist /usr/local/bin

@@ -1,3 +1,5 @@
+include /etc/firejail/globals.local
+
 whitelist /tmp/.X11-unix
 
 ## Add other whitelisted directories here if desired

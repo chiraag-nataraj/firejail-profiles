@@ -1,3 +1,5 @@
+include /etc/firejail/globals.local
+
 whitelist ${HOME}/scripts/fetchmail-real.sh
 # whitelist ${HOME}/.fetchmailrc.gpg
 ## Location of your fetchmailrc - I decrypt it into /tmp/fetchmailrc

@@ -1,3 +1,5 @@
+include /etc/firejail/globals.local
+
 whitelist ${HOME}/.flowblade
 whitelist ${HOME}/.themes
 whitelist ${HOME}/.config/gtk-3.0

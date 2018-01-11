@@ -1,3 +1,5 @@
+include /etc/firejail/globals.local
+
 # Firejail profile for tor-browser-en from the Arch User Repository:
 # https://aur.archlinux.org/packages/tor-browser-en/
 

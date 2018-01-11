@@ -1,3 +1,5 @@
+include /etc/firejail/globals.local
+
 # How to use:
 # Create a script called anything (e.g. mytor)
 # with the following contents:

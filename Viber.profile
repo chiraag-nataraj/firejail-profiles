@@ -1,4 +1,6 @@
-private-bin sh,dig,awk
+include /etc/firejail/globals.local
+
+private-bin sh,dig,awk,xdg-mime,cut,touch,mv
 private-etc hosts,fonts,mailcap,resolv.conf,X11,pulse,alternatives,localtime,nsswitch.conf,ssl,proxychains.conf
 private-tmp
 
@@ -25,7 +27,11 @@ noexec /tmp
 
 shell none
 seccomp
-noroot
+# noroot
 caps.drop all
 nogroups
 ipc-namespace
+
+# x11 xpra
+
+env QML_DISABLE_DISK_CACHE=1

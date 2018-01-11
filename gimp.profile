@@ -1,3 +1,5 @@
+include /etc/firejail/globals.local
+
 whitelist ${HOME}/.gimp-2.8
 whitelist ${HOME}/.gtkrc-2.0
 whitelist ${HOME}/.themes

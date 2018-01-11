@@ -1,3 +1,5 @@
+include /etc/firejail/globals.local
+
 whitelist ${HOME}/.config/Trolltech.conf
 whitelist ${HOME}/.gtkrc-2.0
 whitelist ${HOME}/.kde

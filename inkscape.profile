@@ -1,3 +1,5 @@
+include /etc/firejail/globals.local
+
 whitelist ${HOME}/.config/inkscape
 whitelist ${HOME}/.gtkrc-2.0
 whitelist ${HOME}/.themes

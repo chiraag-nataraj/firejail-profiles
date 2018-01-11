@@ -1,3 +1,5 @@
+include /etc/firejail/globals.local
+
 # Apparently these break kdenlive for some people - they work for me though?
 # whitelist ${HOME}/.config/
 # whitelist ${HOME}/kdenlive

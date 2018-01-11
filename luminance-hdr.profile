@@ -1,3 +1,5 @@
+include /etc/firejail/globals.local
+
 whitelist ${HOME}/Pictures
 whitelist ${HOME}/Downloads
 whitelist ${HOME}/.LuminanceHDR

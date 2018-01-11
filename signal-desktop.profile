@@ -3,22 +3,22 @@ include /etc/firejail/globals.local
 blacklist /usr/local/bin
 blacklist /usr/local/sbin
 
-whitelist ${HOME}/Videos
-whitelist ${DOWNLOADS}
-
 blacklist /boot
 blacklist /media
 blacklist /mnt
-blacklist /opt
 
-private-bin python3,python3.6,youtube-dl
+whitelist /opt/Signal
+
+whitelist ${HOME}/.config/Signal
+whitelist ${DOWNLOADS}
+whitelist ${HOME}/.themes
+whitelist ${HOME}/.gtkrc-2.0
+
 private-dev
-private-etc hosts,resolv.conf,ssl
 private-tmp
+private-bin emp
 
 shell none
-noroot
-caps.drop all
 seccomp
-nogroups
-nosound
+caps.drop all
+ipc-namespace

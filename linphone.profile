@@ -1,3 +1,5 @@
+include /etc/firejail/globals.local
+
 whitelist ${HOME}/.linphonerc
 whitelist ${HOME}/.linphone-history.db
 whitelist ${HOME}/Downloads
