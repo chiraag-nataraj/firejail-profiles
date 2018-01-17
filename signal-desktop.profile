@@ -16,7 +16,7 @@ whitelist ${HOME}/.gtkrc-2.0
 
 private-dev
 private-tmp
-private-bin emp
+private-bin signal-desktop
 
 shell none
 seccomp
