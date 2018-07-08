@@ -1,31 +1,10 @@
-# Firejail profile for fetchmail
-# This file is overwritten after every install/update
-# Persistent local customizations
-include /etc/firejail/fetchmail.local
-# Persistent global definitions
-include /etc/firejail/globals.local
+include ${HOME}/.config/firejail/common.inc
 
-blacklist /boot
-blacklist /media
-blacklist /mnt
-blacklist /opt
-
-# Location of your fetchmailrc - I decrypt it into /tmp/fetchmailrc
-# whitelist ${HOME}/.fetchmailrc.gpg
-whitelist ${HOME}/.procmailrc.brown
-whitelist ${HOME}/.procmailrc.gmail
 whitelist ${HOME}/Mail
-whitelist ${HOME}/scripts/fetchmail-real.sh
-whitelist /tmp/fetchmailrc
-include /etc/firejail/whitelist-common.inc
 
-caps.drop all
-nogroups
-noroot
+private-bin fetchmail,getmail_maildir,bash,chmod,python2,sh
+private-lib nss,ssl,python2.7,libnss_resolve.so.2,libnss_mdns4_minimal.so.2,locale,libnss_files.so.2,libnsl.so.1,libnss_nis.so.2,libnss_compat.so.2,libutil.so.1,libz.so.1,libm.so.6
+# private-etc passwd,hosts,resolv.conf,nsswitch.conf
+
 nosound
-seccomp
 x11 none
-
-# private-bin fetchmail,procmail,bash,chmod
-private-dev
-# private-etc passwd,hosts,resolv.conf

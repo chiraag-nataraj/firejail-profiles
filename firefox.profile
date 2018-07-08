@@ -1,55 +1,48 @@
-# Firejail profile for firefox
-# This file is overwritten after every install/update
-# Persistent local customizations
-include /etc/firejail/firefox.local
-# Persistent global definitions
-include /etc/firejail/globals.local
+ignore private-dev
+ignore nou2f
 
-blacklist /ae108
-blacklist /boot
-blacklist /media
-blacklist /mnt
-blacklist /usr/local/bin
-blacklist /usr/local/sbin
+include ${HOME}/.config/firejail/common.inc
 
-whitelist ${HOME}/.Xauthority
-whitelist ${HOME}/.config/fcitx/
-whitelist ${HOME}/.config/google-googletalkplugin/
-whitelist ${HOME}/.config/gtk-3.0/
+whitelist ${HOME}/.mozilla
+whitelist ${HOME}/Downloads/
+whitelist ${HOME}/.pulse/
+whitelist ${HOME}/.cache/mozilla/firefox
 whitelist ${HOME}/.config/pulse/
+whitelist ${HOME}/.config/gtk-3.0/
 whitelist ${HOME}/.gtkrc-2.0
 whitelist ${HOME}/.gtkrc.mine
-whitelist ${HOME}/.mozilla
-whitelist ${HOME}/.pulse/
 whitelist ${HOME}/.themes
-whitelist ${HOME}/Downloads/
-whitelist ${HOME}/PDF/
-whitelist /dev/dri
-whitelist /dev/full
-whitelist /dev/null
-whitelist /dev/ptmx
-whitelist /dev/pts
-whitelist /dev/random
-whitelist /dev/shm
-whitelist /dev/snd
-whitelist /dev/tty
-whitelist /dev/urandom
-whitelist /dev/video0
-whitelist /dev/zero
-whitelist /tmp/.X11-unix/
-whitelist /tmp/dbus_session_socket
-whitelist /tmp/fcitx-socket-:0
-whitelist /tmp/fcitx_dbus_socket
-include /etc/firejail/whitelist-common.inc
+whitelist ${HOME}/.Xauthority
+# whitelist ${HOME}/PDF/
 
-caps.drop all
-noroot
+# Private directories
+
+private-bin firefox,which,sh,env
+private-etc hosts,passwd,mime.types,fonts,mailcap,firefox,xdg,gtk-3.0,resolv.conf,X11,pulse,alternatives,localtime,nsswitch.conf
+
+# whitelist /dev/dri
+# whitelist /dev/full
+# whitelist /dev/null
+# whitelist /dev/nvidia0
+# whitelist /dev/nvidiactl
+# whitelist /dev/nvidia-modeset
+# whitelist /dev/nvidia-uvm
+# whitelist /dev/nvidia-uvm-tools
+# whitelist /dev/ptmx
+# whitelist /dev/pts
+# whitelist /dev/random
+# whitelist /dev/shm
+# whitelist /dev/snd
+# whitelist /dev/tty
+# whitelist /dev/urandom
+# whitelist /dev/video0
+# whitelist /dev/zero
+# whitelist /dev/hidraw0
+# whitelist /dev/hidraw1
+# whitelist /dev/hidraw2
+# whitelist /dev/usb
+# whitelist /dev/usb/hiddev0
+
+# Miscellaneous options
+
 # protocol unix,inet,inet6
-seccomp
-shell none
-
-private-bin firefox,which,sh,dbus-launch,dbus-send,fcitx-dbus-watcher,fcitx-remote,fcitx,env
-private-etc hosts,passwd,mime.types,fonts/,mailcap,iceweasel/,xdg/,gtk-3.0/,resolv.conf,X11/,pulse/,alternatives/,localtime,nsswitch.conf
-
-noexec ${HOME}
-noexec /tmp

@@ -1,26 +1,16 @@
-# Firejail profile for mpd
-# This file is overwritten after every install/update
-# Persistent local customizations
-include /etc/firejail/mpd.local
-# Persistent global definitions
-include /etc/firejail/globals.local
+include ${HOME}/.config/firejail/common.inc
 
-blacklist /boot
-blacklist /media
-blacklist /mnt
-blacklist /opt
-
-whitelist ${HOME}/.config/pulse/
-whitelist ${HOME}/.mpdconf
-whitelist ${HOME}/.pulse/
 whitelist ${HOME}/Music
 whitelist ${HOME}/mpd
-include /etc/firejail/whitelist-common.inc
-
-caps.drop all
-noroot
-seccomp
+whitelist ${HOME}/.mpdconf
+whitelist ${HOME}/.config/pulse/
+whitelist ${HOME}/.pulse/
+read-only ${HOME}/Music/
 
 private-bin mpd,bash
-private-dev
-read-only ${HOME}/Music/
+private-etc emp
+private-lib
+
+net none
+# protocol unix
+x11 none

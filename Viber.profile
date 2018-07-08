@@ -1,15 +1,24 @@
-# Firejail profile for Viber
-# This file is overwritten after every install/update
-# Persistent local customizations
-include /etc/firejail/Viber.local
-# Persistent global definitions
-include /etc/firejail/globals.local
+ignore private-dev
+ignore private-opt
 
-whitelist ${DOWNLOADS}
+include ${HOME}/.config/firejail/common.inc
+
+private-bin sh,dig,awk,xdg-mime,cut,touch,mv
+private-etc hosts,fonts,mailcap,resolv.conf,X11,pulse,alternatives,localtime,nsswitch.conf,ssl
+
+whitelist /opt/viber
+
 whitelist ${HOME}/.ViberPC
+whitelist ${DOWNLOADS}
+
 whitelist /dev/dri
 whitelist /dev/full
 whitelist /dev/null
+whitelist /dev/nvidia0
+whitelist /dev/nvidiactl
+whitelist /dev/nvidia-modeset
+whitelist /dev/nvidia-uvm
+whitelist /dev/nvidia-uvm-tools
 whitelist /dev/ptmx
 whitelist /dev/pts
 whitelist /dev/random
@@ -19,21 +28,6 @@ whitelist /dev/tty
 whitelist /dev/urandom
 whitelist /dev/video0
 whitelist /dev/zero
-whitelist /opt/viber
-include /etc/firejail/whitelist-common.inc
-
-shell none
-seccomp
-caps.drop all
-ipc-namespace
-nogroups
-# noroot
 
 env QML_DISABLE_DISK_CACHE=1
-
-private-bin sh,dig,awk
-private-etc hosts,fonts,mailcap,resolv.conf,X11,pulse,alternatives,localtime,nsswitch.conf,ssl,proxychains.conf
-private-tmp
-
-noexec ${HOME}
-noexec /tmp
+env QT_AUTO_SCREEN_SCALE_FACTOR=0.5

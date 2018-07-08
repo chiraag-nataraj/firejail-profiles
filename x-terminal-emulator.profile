@@ -1,25 +1,13 @@
-# Firejail profile for x-terminal-emulator
-# This file is overwritten after every install/update
-# Persistent local customizations
-include /etc/firejail/x-terminal-emulator.local
-# Persistent global definitions
-include /etc/firejail/globals.local
+ignore nodbus
+ignore noexec ${HOME}
+ignore private-tmp
+ignore private-dev
+ignore nou2f
 
-
-whitelist /tmp/.X11-unix/X470
-whitelist /tmp/fcitx-socket-:0
-whitelist /tmp/user/1000/
-include /etc/firejail/whitelist-common.inc
-
-caps.drop all
-ipc-namespace
-net none
+include ${HOME}/.config/firejail/common.inc
 
 netfilter
-nogroups
-noroot
-seccomp
+net none
 
-private-dev
-
-noexec /tmp
+whitelist /tmp/user/1000
+whitelist /tmp/.X11-unix/X0
