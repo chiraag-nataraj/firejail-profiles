@@ -1,28 +1,23 @@
-# Firejail profile for virtualbox
-# This file is overwritten after every install/update
-# Persistent local customizations
-include /etc/firejail/virtualbox.local
-# Persistent global definitions
-include /etc/firejail/globals.local
+ignore seccomp
+ignore caps.drop
+ignore apparmor
+ignore noroot
+ignore nonewprivs
+ignore private-dev
 
-blacklist /boot
-blacklist /media
-blacklist /mnt
-blacklist /opt
+include ${HOME}/.config/firejail/common.inc
 
-whitelist ${HOME}/.config/Trolltech.conf
+whitelist ${HOME}/Downloads
+whitelist ${HOME}/VirtualBox_VMs
 whitelist ${HOME}/.config/VirtualBox
 whitelist ${HOME}/.gtkrc-2.0
 whitelist ${HOME}/.gtkrc.mine
-whitelist ${HOME}/Downloads
-whitelist ${HOME}/VirtualBox_VMs
-whitelist /dev/dri
-whitelist /dev/null
-whitelist /dev/sdc
-whitelist /dev/sdc1
+whitelist ${HOME}/.config/Trolltech.conf
+
 whitelist /dev/vboxdrv
 whitelist /dev/vboxdrvu
 whitelist /dev/vboxnetctl
-include /etc/firejail/whitelist-common.inc
-
-caps.drop all
+whitelist /dev/null
+whitelist /dev/dri
+whitelist /dev/sdc1
+whitelist /dev/sdc
