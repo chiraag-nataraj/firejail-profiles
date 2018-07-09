@@ -10,7 +10,3 @@ read-only ${HOME}/Music/
 private-bin mpd,bash
 private-etc emp
 private-lib
-
-net none
-# protocol unix
-x11 none

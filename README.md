@@ -1,4 +1,4 @@
-# firejail-profile
+# firejail-profiles
 Tight Firejail profiles
 
 This is a collection of tighter firejail (https://github.com/netblue30/firejail) profiles for certain applications. These may or may not work on your computer since some of them use seccomp filters, which may depend on architecture and OS. These were designed on Debian sid/experimental x86_64.

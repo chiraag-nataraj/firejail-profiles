@@ -21,3 +21,4 @@ ipc-namespace
 nodbus
 nou2f
 nogroups
+net none

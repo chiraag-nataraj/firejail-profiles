@@ -4,6 +4,7 @@ ignore apparmor
 ignore noroot
 ignore nonewprivs
 ignore private-dev
+ignore net
 
 include ${HOME}/.config/firejail/common.inc
 

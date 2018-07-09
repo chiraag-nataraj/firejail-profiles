@@ -1,36 +1,12 @@
-# Firejail profile for flowblade
-# This file is overwritten after every install/update
-# Persistent local customizations
-include /etc/firejail/flowblade.local
-# Persistent global definitions
-include /etc/firejail/globals.local
+include ${HOME}/.config/firejail/common.inc
 
-blacklist /boot
-blacklist /media
-blacklist /mnt
-blacklist /opt
-blacklist /usr/local/bin
-
-whitelist ${DOWNLOADS}
-whitelist ${HOME}/.config/flowblade
-whitelist ${HOME}/.config/gtk-3.0
 whitelist ${HOME}/.flowblade
 whitelist ${HOME}/.themes
-whitelist ${HOME}/Videos
-whitelist /tmp/.X11-unix/
-include /etc/firejail/whitelist-common.inc
+whitelist ${HOME}/.config/gtk-3.0
+whitelist ${HOME}/.config/flowblade
 
-caps.drop all
-ipc-namespace
-net none
-nogroups
-noroot
-seccomp
-shell none
+whitelist ${DOWNLOADS}
+whitelist ${HOME}/Videos
 
 private-bin python,flowblade
-private-dev
 private-etc pulse,fonts,alternatives,X11
-
-noexec /home
-noexec /tmp

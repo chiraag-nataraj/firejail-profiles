@@ -1,5 +1,7 @@
 ignore private-dev
 ignore private-opt
+ignore nodbus
+ignore net
 
 include ${HOME}/.config/firejail/common.inc
 

@@ -1,29 +1,11 @@
-# Firejail profile for youtube-dl
-# This file is overwritten after every install/update
-# Persistent local customizations
-include /etc/firejail/youtube-dl.local
-# Persistent global definitions
-include /etc/firejail/globals.local
+ignore net
 
-blacklist /boot
-blacklist /media
-blacklist /mnt
-blacklist /opt
-blacklist /usr/local/bin
-blacklist /usr/local/sbin
+include ${HOME}/.config/firejail/common.inc
 
-whitelist ${DOWNLOADS}
 whitelist ${HOME}/Videos
-include /etc/firejail/whitelist-common.inc
-
-caps.drop all
-nogroups
-noroot
-nosound
-seccomp
-shell none
+whitelist ${DOWNLOADS}
 
 private-bin python3,python3.6,youtube-dl
-private-dev
 private-etc hosts,resolv.conf,ssl
-private-tmp
+
+nosound

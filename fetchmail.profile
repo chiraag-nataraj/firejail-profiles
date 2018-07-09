@@ -1,3 +1,5 @@
+ignore net
+
 include ${HOME}/.config/firejail/common.inc
 
 whitelist ${HOME}/Mail

@@ -21,8 +21,6 @@ whitelist ${HOME}/texmf
 mkdir ${HOME}/emacs_tmp/
 whitelist ${HOME}/emacs_tmp
 
-net none
-protocol unix
 memory-deny-write-execute
 keep-var-tmp
 writable-var

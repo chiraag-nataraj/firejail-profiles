@@ -1,5 +1,6 @@
 ignore private-tmp
 ignore private-dev
+ignore net
 
 include ${HOME}/.config/firejail/common.inc
 
