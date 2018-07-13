@@ -18,6 +18,7 @@ caps.drop all
 apparmor
 nonewprivs
 ipc-namespace
+machine-id
 nodbus
 nou2f
 nogroups
