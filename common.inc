@@ -5,6 +5,7 @@ blacklist /boot
 
 private-tmp
 private-dev
+disable-mnt
 private-opt emp
 
 noexec ${HOME}
