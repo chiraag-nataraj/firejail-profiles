@@ -17,6 +17,8 @@ An example script, `firefox.common`, which makes use of `gen_libraries` is provi
 * It can create a temporary profile which is completely empty (pass the path to any profile as the first argument, `1` as the second argument, and `0` as the third argument).
 * It can create a temporary profile and copy over files from another profile (pass the path to the profile which you wish to copy files from as the first argument and `1` as the second and third arguments). You can edit the list of files and folders to be copied over by editing the `$TOCOPY` variable.
 
+If you don't wish to use `systemd-run` (or don't run `systemd`), you can easily edit that part of the code. I use it because it's easy to prevent errors from `firefox` from trying to load the same profile twice (which would happen if I tried to use `--new-instance` on a currently-open `firefox` profile). You may also need to edit the list of additional libraries (the second argument to `compile_list`), since that list is what works for me on my system but may not be enough on yours.
+
 ## Profiles
 
 List of currently-supported programs:
