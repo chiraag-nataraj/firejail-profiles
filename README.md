@@ -34,6 +34,7 @@ List of currently-supported programs:
 * Fetchmail
 * Firefox
 * Flowblade
+* Fontforge
 * FreeCAD
 * GIMP
 * Google Chrome
