@@ -11,6 +11,7 @@ shift
 
 FXLIBDIR=/usr/lib/firefox
 GENLIB=~/scripts/gen_libraries
+USE_SYSTEMD=1
 
 . $GENLIB
 
@@ -32,11 +33,30 @@ then
     fi
 fi
 
-if systemctl --user --quiet is-active firefox-${NAME}.service
+FXCMD="firejail --private-lib=$LIBS -- firefox --new-instance --profile ${PROFILE} $*"
+
+if [ "$USE_SYSTEMD" -eq 1 ]
 then
+    FXRUNNING=$(systemctl --user --quiet is-active firefox-${NAME}.service; echo $?)
+else
+    FXRUNNING=$(pgrep -f "firefox --new-instance --profile ${PROFILE}" > /dev/null; echo $?)
+fi
+
+if [ "$FXRUNNING" -eq 0 ]
+then
+    # Currently broken - will open in whatever profile is default.
+    # This is a Firefox issue and there isn't much I can do about it.
     firefox --profile ${PROFILE} $*
 else
-    systemd-run --wait --user --unit=firefox-${NAME}.service --description="`echo "Firefox ("${NAME}")"`" firejail --private-lib="$LIBS" -- firefox --new-instance --profile ${PROFILE} $*
+    # systemd-run is stupid and I can't get it to work when storing the
+    # prefix to a variable
+    if [ "$USE_SYSTEMD" -eq 1 ]
+    then
+	systemd-run --wait --user --unit="firefox-${NAME}.service" \
+		    --description="`echo "Firefox ("${NAME}")"`" $FXCMD
+    else
+	$FXCMD
+    fi
 fi
 
 if [ "$RMPROF" -eq 1 ]
