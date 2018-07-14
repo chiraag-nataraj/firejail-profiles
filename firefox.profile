@@ -1,6 +1,7 @@
 ignore private-dev
 ignore nou2f
 ignore net
+ignore nodbus
 
 include ${HOME}/.config/firejail/common.inc
 
@@ -18,7 +19,7 @@ whitelist ${HOME}/.Xauthority
 # Private directories
 
 private-bin firefox,which,sh,env
-private-etc hosts,passwd,mime.types,fonts,mailcap,firefox,xdg,gtk-3.0,X11,pulse,alternatives,localtime,nsswitch.conf
+private-etc hosts,passwd,mime.types,fonts,mailcap,firefox,xdg,gtk-3.0,X11,pulse,alternatives,localtime,nsswitch.conf,resolv.conf
 
 # whitelist /dev/dri
 # whitelist /dev/full
