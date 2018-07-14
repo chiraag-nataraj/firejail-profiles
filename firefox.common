@@ -1,0 +1,42 @@
+#!/bin/bash
+
+PROFILE=$1
+NAME=$(basename $PROFILE)
+PRIVATE=$2
+COPY=$3
+RMPROF=0
+shift
+shift
+shift
+
+. ~/scripts/gen_libraries
+
+LIBS=`compile_list /usr/lib/firefox nss,pulseaudio,nvidia,python3.6,gconv,libpulse.so.0,libFLAC.so.8,libogg.so.0,libopus.so.0,libvorbis.so.0,libvorbisenc.so.2,libavcodec.so.57,libavutil.so.55,libcrystalhd.so.3,libdrm.so.2,libGL.so.1,libnss_resolve.so.2,libnss_systemd.so.2`
+
+if [ "$PRIVATE" -eq 1 ]
+then
+    SRCDIR=${PROFILE}
+    PROFILE=$(mktemp -d -p ~/.mozilla/firefox/)
+    NAME=$(basename $PROFILE)
+    TOCOPY=( extensions browser-extension-data extension-preferences.json extension-settings.json extensions.json prefs.js )
+    RMPROF=1
+    if [ "$COPY" -eq 1 ]
+    then
+	for i in ${TOCOPY[@]}
+	do
+	    cp -R ${SRCDIR}/${i} ${PROFILE}/${i}
+	done
+    fi
+fi
+
+if systemctl --user --quiet is-active firefox-${NAME}.service
+then
+    firefox --profile ${PROFILE} $*
+else
+    systemd-run --wait --user --unit=firefox-${NAME}.service --description="`echo "Firefox ("${NAME}")"`" firejail --private-lib="$LIBS" -- firefox --new-instance --profile ${PROFILE} $*
+fi
+
+if [ "$RMPROF" -eq 1 ]
+then
+    rm -rf ${PROFILE}
+fi
