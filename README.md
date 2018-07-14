@@ -11,7 +11,7 @@ I have tentatively started enabling X11 jailing on some of these profiles. Becau
 
 Currently there is one utility file in this repository: `gen_libraries`. `gen_libraries` is a collection of `bash` functions which helps dynamically resolve the libraries needed by a program in a more powerful way than the built-in one shipped with `firejail`. Most pertinently, it allows passing a folder as the first argument, in which case it will use `find` to locate all files within the folder and run `ldd` on each of them. This makes it easier, say, to compile a list for `firefox`.
 
-An example script, `firefox.common`, which makes use of `gen_libraries` is provided in this repository as well. It has the following features:
+An example script, `firefox.common`, which makes use of `gen_libraries` is provided in this repository as well. You should edit `$FXLIBDIR` and `$GENLIB` to point to your `firefox` lib directory (defaults to `/usr/lib/firefox`) and the `gen_libraries` script (default `~/scripts/gen_libraries`). It has the following features:
 
 * It can simply load a profile (pass the path to the profile as the first argument and `0` as the second and third arguments).
 * It can create a temporary profile which is completely empty (pass the path to any profile as the first argument, `1` as the second argument, and `0` as the third argument).
@@ -32,7 +32,7 @@ List of currently-supported programs:
 * Darktable
 * Dia
 * Fetchmail
-* Firefox
+* Firefox (regular and ESR)
 * Flowblade
 * Fontforge
 * FreeCAD
