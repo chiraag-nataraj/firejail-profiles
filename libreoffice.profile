@@ -1,3 +1,5 @@
+ignore private-tmp
+
 include ${HOME}/.config/firejail/common.inc
 
 whitelist ${HOME}/Downloads
