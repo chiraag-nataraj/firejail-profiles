@@ -9,9 +9,12 @@ shift
 shift
 shift
 
-. ~/scripts/gen_libraries
+FXLIBDIR=/usr/lib/firefox
+GENLIB=~/scripts/gen_libraries
 
-LIBS=`compile_list /usr/lib/firefox nss,pulseaudio,nvidia,python3.6,gconv,libpulse.so.0,libFLAC.so.8,libogg.so.0,libopus.so.0,libvorbis.so.0,libvorbisenc.so.2,libavcodec.so.57,libavutil.so.55,libcrystalhd.so.3,libdrm.so.2,libGL.so.1,libnss_resolve.so.2,libnss_systemd.so.2`
+. $GENLIB
+
+LIBS=`compile_list ${FXLIBDIR} nss,pulseaudio,nvidia,python3.6,gconv,libpulse.so.0,libFLAC.so.8,libogg.so.0,libopus.so.0,libvorbis.so.0,libvorbisenc.so.2,libavcodec.so.57,libavutil.so.55,libcrystalhd.so.3,libdrm.so.2,libGL.so.1,libnss_resolve.so.2,libnss_systemd.so.2`
 
 if [ "$PRIVATE" -eq 1 ]
 then
