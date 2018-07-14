@@ -1,0 +1,1 @@
+private-lib nss,pulseaudio,locale,gconv,libsqlite3.so.0,libudev.so.1,libvorbisenc.so.2,libvorbis.so.0,libogg.so.0,libFLAC.so.8,libasyncns.so.0,libsndfile.so.1,libwrap.so.0,libSM.so.6,libICE.so.6,libcap.so.2,libpulse.so.0,libnotify.so.4,libGL.so.1,libnss_resolve.so.2,libnss_systemd.so.2
