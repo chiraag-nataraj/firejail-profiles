@@ -1,0 +1,21 @@
+#!/bin/bash
+
+get_deps()
+{
+    ldd "$1" | grep -v "/lib64" | grep -v 'not a dynamic' | grep -v "linux-vdso" | grep -v '/usr/lib/.*/.*/.*.so' | grep -v "not found" | grep '^	' | awk -F '=>' '{ print $1; };' | sed 's/(.*//g' | sort | uniq
+}
+
+get_folders()
+{
+    ldd "$1" | grep '/usr/lib/.*/.*/.*.so' | grep -o '/.*/' | sed 's/\/usr\/lib\///g' | sed 's/\/$//g' | sort | uniq
+}
+
+compile_list()
+{
+    PRIMARY="$1"
+    SECONDARY="$2"
+    LIBS=(`find "$PRIMARY" -type f -print0 | while IFS= read -r -d '' file; do get_deps "$file"; done | sort | uniq`)
+    LIBFLDRS=(`find "$PRIMARY" -type f -print0 | while IFS= read -r -d '' file; do get_folders "$file"; done | sort | uniq`)
+    LIBS2=(`echo "$SECONDARY" | tr ',' ' '`)
+    echo "${LIBS[@]}" "${LIBFLDRS[@]}" "${LIBS2[@]}" | tr ' ' ','
+}
