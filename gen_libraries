@@ -1,9 +1,13 @@
 #!/bin/bash
 
+# Get dependencies of a single ELF executable
+
 get_deps()
 {
     ldd "$1" | grep -v "/lib64" | grep -v 'not a dynamic' | grep -v "linux-vdso" | grep -v '/usr/lib/.*/.*/.*.so' | grep -v "not found" | grep '^	' | awk -F '=>' '{ print $1; };' | sed 's/(.*//g' | sort | uniq
 }
+
+# Get folders in output of ldd
 
 get_folders()
 {
@@ -12,7 +16,9 @@ get_folders()
 
 compile_list()
 {
+    # If $PRIMARY is a folder, this will find all files and run ldd on them (which will fail for files which aren't ELF executables)
     PRIMARY="$1"
+    # $SECONDARY is an explicit list of additional libraries the program needs (beyond the ones that show up in ldd)
     SECONDARY="$2"
     LIBS=(`find "$PRIMARY" -type f -print0 | while IFS= read -r -d '' file; do get_deps "$file"; done | sort | uniq`)
     LIBFLDRS=(`find "$PRIMARY" -type f -print0 | while IFS= read -r -d '' file; do get_folders "$file"; done | sort | uniq`)
