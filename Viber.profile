@@ -2,6 +2,7 @@ ignore private-dev
 ignore private-opt
 ignore nodbus
 ignore net
+ignore machine-id
 
 include ${HOME}/.config/firejail/common.inc
 include ${HOME}/.config/firejail/noexec-home.inc
