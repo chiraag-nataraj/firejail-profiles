@@ -1,10 +1,11 @@
 ignore private-opt
-# ignore noroot
 ignore nodbus
 ignore net
 
 include ${HOME}/.config/firejail/common.inc
 include ${HOME}/.config/firejail/electron-common.inc
+include ${HOME}/.config/firejail/noexec-home.inc
+include ${HOME}/.config/firejail/noexec-tmp.inc
 
 whitelist /opt/Signal
 

@@ -8,9 +8,6 @@ private-dev
 disable-mnt
 private-opt emp
 
-noexec ${HOME}
-noexec /tmp
-
 shell none
 seccomp
 seccomp.block-secondary

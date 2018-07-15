@@ -1,4 +1,6 @@
 include ${HOME}/.config/firejail/common.inc
+include ${HOME}/.config/firejail/noexec-home.inc
+include ${HOME}/.config/firejail/noexec-tmp.inc
 
 # Stupid errors about being unable to update configuration file.
 # I personally deal with this by running it once without a sandbox

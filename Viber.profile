@@ -4,6 +4,8 @@ ignore nodbus
 ignore net
 
 include ${HOME}/.config/firejail/common.inc
+include ${HOME}/.config/firejail/noexec-home.inc
+include ${HOME}/.config/firejail/noexec-tmp.inc
 
 private-bin sh,dig,awk,xdg-mime,cut,touch,mv
 private-etc hosts,fonts,mailcap,resolv.conf,X11,pulse,alternatives,localtime,nsswitch.conf,ssl

@@ -1,7 +1,7 @@
 ignore net
-ignore noexec
 
 include ${HOME}/.config/firejail/common.inc
+include ${HOME}/.config/firejail/noexec-tmp.inc
 
 whitelist ${HOME}/Dropbox
 whitelist ${HOME}/.dropbox
