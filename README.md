@@ -19,6 +19,8 @@ An example script, `firefox.common`, which makes use of `gen_libraries` is provi
 
 You can disable the `systemd` specific parts of the script by setting `$USE_SYSTEMD` to `0`. You may also need to edit the list of additional libraries (the second argument to `compile_list`), since that list is what works for me on my system but may not be enough on yours.
 
+Another example script, `dropbox`, is also provided which uses `gen_libraries` to dynamically generate the library dependencies needed to get `dropboxx` working with a `private-lib` filter.
+
 ## Profiles
 
 List of currently-supported programs:
