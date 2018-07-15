@@ -29,6 +29,7 @@ List of currently-supported programs:
 * aMule
 * Blender
 * Brackets
+* BRL-CAD (experimental) - use the generator script `brlcad-gen.sh` to generate aliased profiles and setup the `private-bin` predicate.
 * Calligra
 * Cinelerra
 * Darktable
