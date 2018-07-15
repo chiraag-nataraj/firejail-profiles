@@ -31,6 +31,7 @@ List of currently-supported programs:
 * Cinelerra
 * Darktable
 * Dia
+* Dropbox
 * Fetchmail
 * Firefox (regular and ESR)
 * Flowblade
