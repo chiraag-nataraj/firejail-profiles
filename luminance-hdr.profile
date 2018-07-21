@@ -1,34 +1,13 @@
-# Firejail profile for luminance-hdr
-# This file is overwritten after every install/update
-# Persistent local customizations
-include /etc/firejail/luminance-hdr.local
-# Persistent global definitions
-include /etc/firejail/globals.local
+ignore memory-deny-write-execute
 
-blacklist /boot
-blacklist /media
-blacklist /mnt
-blacklist /opt
+include ${HOME}/.config/firejail/common.inc
+include ${HOME}/.config/firejail/noexec-home.inc
+include ${HOME}/.config/firejail/noexec-tmp.inc
 
-whitelist ${HOME}/.LuminanceHDR
-whitelist ${HOME}/.config/Luminance
-whitelist ${HOME}/Downloads
 whitelist ${HOME}/Pictures
-whitelist /tmp/.X11-unix
-include /etc/firejail/whitelist-common.inc
-
-caps.drop all
-ipc-namespace
-net none
-nogroups
-noroot
-nosound
-seccomp
-shell none
+whitelist ${HOME}/Downloads
+whitelist ${HOME}/.LuminanceHDR
+whitelist ${HOME}/.config/Luminance HDR Development Team
 
 private-bin luminance-hdr,luminance-hdr-cli,align_image_stack
-private-dev
 private-etc fonts,X11,alternatives
-
-noexec ${HOME}
-noexec /tmp

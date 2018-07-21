@@ -1,34 +1,14 @@
-# Firejail profile for amule
-# This file is overwritten after every install/update
-# Persistent local customizations
-include /etc/firejail/amule.local
-# Persistent global definitions
-include /etc/firejail/globals.local
+ignore net
 
-blacklist /boot
-blacklist /media
-blacklist /mnt
-blacklist /opt
-
-blacklist /usr/local/bin
-blacklist /usr/local/sbin
+include ${HOME}/.config/firejail/common.inc
+include ${HOME}/.config/firejail/noexec-home.inc
+include ${HOME}/.config/firejail/noexec-tmp.inc
 
 whitelist ${DOWNLOADS}
 whitelist ${HOME}/.aMule
 whitelist ${HOME}/.gtkrc-2.0
 whitelist ${HOME}/.gtkrc.mine
 whitelist ${HOME}/.themes
-include /etc/firejail/whitelist-common.inc
-
-caps.drop all
-ipc-namespace
-nogroups
-nonewprivs
-noroot
-seccomp
-shell none
 
 private-bin amule
-private-dev
-private-etc fonts,hosts
-private-tmp
+private-etc hosts,fonts,xdg,gtk-3.0,X11,localtime,nsswitch.conf,resolv.conf

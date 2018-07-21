@@ -1,33 +1,12 @@
-# Firejail profile for qpdfview
-# This file is overwritten after every install/update
-# Persistent local customizations
-include /etc/firejail/qpdfview.local
-# Persistent global definitions
-include /etc/firejail/globals.local
+ignore memory-deny-write-execute
 
-blacklist /boot
-blacklist /media
-blacklist /mnt
-blacklist /opt
+include ${HOME}/.config/firejail/common.inc
+include ${HOME}/.config/firejail/noexec-home.inc
+include ${HOME}/.config/firejail/noexec-tmp.inc
 
 whitelist ${DOWNLOADS}
-whitelist ${HOME}/.config/qpdfview
 whitelist ${HOME}/Documents
-whitelist /tmp/.X11-unix
-include /etc/firejail/whitelist-common.inc
+whitelist ${HOME}/.config/qpdfview
 
-caps.drop all
-ipc-namespace
-net none
-nogroups
-noroot
-nosound
-seccomp
-shell none
-
-private-bin qpdfview
-private-dev
 private-etc fonts,X11,alternatives
-
-noexec ${HOME}
-noexec /tmp
+private-bin qpdfview

@@ -21,3 +21,4 @@ nodbus
 nou2f
 nogroups
 net none
+memory-deny-write-execute

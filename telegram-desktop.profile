@@ -1,25 +1,15 @@
-include /etc/firejail/globals.local
+ignore net
+ignore memory-deny-write-execute
 
-blacklist /usr/local/bin
-blacklist /usr/local/sbin
-
-blacklist /boot
-blacklist /media
-blacklist /mnt
-
-private-opt emp
+include ${HOME}/.config/firejail/common.inc
+include ${HOME}/.config/firejail/noexec-home.inc
+include ${HOME}/.config/firejail/noexec-tmp.inc
 
 whitelist ${HOME}/.local/share/TelegramDesktop
 whitelist ${DOWNLOADS}
 whitelist ${HOME}/.themes
 whitelist ${HOME}/.gtkrc-2.0
 
-private-dev
-private-tmp
+private-lib pulseaudio,libpulse.so.0
 private-bin telegram-desktop
-
-shell none
-seccomp
-caps.drop all
-noroot
-ipc-namespace
+private-etc hosts,fonts,xdg,resolv.conf,X11,pulse,alternatives,localtime,nsswitch.conf

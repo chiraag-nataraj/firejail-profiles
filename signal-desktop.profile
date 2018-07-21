@@ -1,6 +1,7 @@
 ignore private-opt
 ignore nodbus
 ignore net
+ignore memory-deny-write-execute
 
 include ${HOME}/.config/firejail/common.inc
 include ${HOME}/.config/firejail/electron-common.inc

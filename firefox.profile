@@ -2,6 +2,7 @@ ignore private-dev
 ignore nou2f
 ignore net
 ignore nodbus
+ignore memory-deny-write-execute
 
 include ${HOME}/.config/firejail/common.inc
 include ${HOME}/.config/firejail/noexec-home.inc
