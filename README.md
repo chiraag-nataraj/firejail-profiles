@@ -40,6 +40,7 @@ List of currently-supported programs:
 * Flowblade
 * Fontforge
 * FreeCAD
+* Geany
 * GIMP
 * Google Chrome
 * Google Earth
