@@ -41,6 +41,7 @@ List of currently-supported programs:
 * Fontforge
 * FreeCAD
 * Geany
+* Gerbera
 * GIMP
 * Google Chrome
 * Google Earth
