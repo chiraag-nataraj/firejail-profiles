@@ -1,22 +1,10 @@
-# Firejail profile for linphone
-# This file is overwritten after every install/update
-# Persistent local customizations
-include /etc/firejail/linphone.local
-# Persistent global definitions
-include /etc/firejail/globals.local
+ignore net
 
-blacklist /boot
-blacklist /media
-blacklist /mnt
-blacklist /opt
+include ${HOME}/.config/firejail/common.inc
+include ${HOME}/.config/firejail/noexec-home.inc
+include ${HOME}/.config/firejail/noexec-tmp.inc
 
-whitelist ${HOME}/.gtkrc-2.0
-whitelist ${HOME}/.gtkrc.mine
-whitelist ${HOME}/.linphone-history.db
 whitelist ${HOME}/.linphonerc
+whitelist ${HOME}/.linphone-history.db
 whitelist ${HOME}/Downloads
-include /etc/firejail/whitelist-common.inc
-
-caps.drop all
-noroot
-seccomp
+whitelist ${HOME}/.gtkrc-2.0
