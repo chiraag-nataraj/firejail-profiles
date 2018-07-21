@@ -70,7 +70,6 @@ List of currently-supported programs:
 * Slack Desktop
 * Synfig Studio
 * Telegram Desktop
-* Tor (experimental!)
 * Tor Browser Bundle (through the torbrowser-launcher package on Debian)
 * Tor Browser profile for Arch (thanks @robotanarchy!)
 * Viber
