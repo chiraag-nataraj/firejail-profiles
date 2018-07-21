@@ -76,5 +76,6 @@ List of currently-supported programs:
 * Virtualbox
 * WhatsApp Web (application generated with https://github.com/jiahaog/nativefier)
 * Generic terminal emulator (the profile is called x-terminal-emulator because of the /etc/alternatives system in Debian)
+* Xfburn
 * Youtube-dl
 * Zart (thanks @triceratops1!)
