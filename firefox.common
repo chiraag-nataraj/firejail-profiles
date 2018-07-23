@@ -5,17 +5,25 @@ NAME=$(basename $PROFILE)
 PRIVATE=$2
 COPY=$3
 RMPROF=0
-shift
-shift
-shift
+shift 3
 
 FXLIBDIR=/usr/lib/firefox
 GENLIB=~/scripts/gen_libraries
+PRIVLIB=1
 USE_SYSTEMD=1
 
-. $GENLIB
+FIREJAIL="firejail"
 
-LIBS=`compile_list ${FXLIBDIR} nss,pulseaudio,nvidia,python3.6,gconv,libpulse.so.0,libFLAC.so.8,libogg.so.0,libopus.so.0,libvorbis.so.0,libvorbisenc.so.2,libavcodec.so.57,libavutil.so.55,libcrystalhd.so.3,libdrm.so.2,libGL.so.1,libnss_resolve.so.2,libnss_systemd.so.2`
+# private-lib generation if enabled
+
+if [ "$PRIVLIB" -eq 1 ]
+then
+    . $GENLIB
+    LIBS=`compile_list ${FXLIBDIR} nss,pulseaudio,nvidia,python3.6,gconv,libpulse.so.0,libFLAC.so.8,libogg.so.0,libopus.so.0,libvorbis.so.0,libvorbisenc.so.2,libavcodec.so.57,libavutil.so.55,libcrystalhd.so.3,libdrm.so.2,libGL.so.1,libnss_resolve.so.2,libnss_systemd.so.2`
+    FIREJAIL="${FIREJAIL} --private-lib=$LIBS"
+fi
+
+# Deal with creating a private profile if requested
 
 if [ "$PRIVATE" -eq 1 ]
 then
@@ -33,7 +41,9 @@ then
     fi
 fi
 
-FXCMD="firejail --private-lib=$LIBS -- firefox --new-instance --profile ${PROFILE} $*"
+FXCMD="${FIREJAIL} -- firefox --new-instance --profile ${PROFILE} $*"
+
+# systemd-specific behavior if enabled
 
 if [ "$USE_SYSTEMD" -eq 1 ]
 then
@@ -43,6 +53,9 @@ else
     FXRUNNING=$(pgrep -f "firefox --new-instance --profile ${PROFILE}" > /dev/null; echo $?)
 fi
 
+# Open a new tab in the currently-running firefox if it's already open
+# Otherwise spawn a new firefox instance of this profile
+
 if [ "$FXRUNNING" -eq 0 ]
 then
     # Currently broken - will open in whatever profile is default.
@@ -51,6 +64,8 @@ then
 else
     $FXCMD
 fi
+
+# Remove profile if asked
 
 if [ "$RMPROF" -eq 1 ]
 then
