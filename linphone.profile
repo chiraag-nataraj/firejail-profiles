@@ -6,5 +6,5 @@ include ${HOME}/.config/firejail/noexec-tmp.inc
 
 whitelist ${HOME}/.linphonerc
 whitelist ${HOME}/.linphone-history.db
-whitelist ${HOME}/Downloads
+whitelist ${DOWNLOADS}
 whitelist ${HOME}/.gtkrc-2.0

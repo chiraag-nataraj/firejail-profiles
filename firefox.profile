@@ -9,7 +9,7 @@ include ${HOME}/.config/firejail/noexec-home.inc
 include ${HOME}/.config/firejail/noexec-tmp.inc
 
 whitelist ${HOME}/.mozilla
-whitelist ${HOME}/Downloads/
+whitelist ${DOWNLOADS}
 whitelist ${HOME}/.pulse/
 whitelist ${HOME}/.cache/mozilla/firefox
 whitelist ${HOME}/.config/pulse/

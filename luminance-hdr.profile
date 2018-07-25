@@ -5,7 +5,7 @@ include ${HOME}/.config/firejail/noexec-home.inc
 include ${HOME}/.config/firejail/noexec-tmp.inc
 
 whitelist ${HOME}/Pictures
-whitelist ${HOME}/Downloads
+whitelist ${DOWNLOADS}
 whitelist ${HOME}/.LuminanceHDR
 whitelist ${HOME}/.config/Luminance HDR Development Team
 

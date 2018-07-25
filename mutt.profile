@@ -19,7 +19,7 @@ whitelist ${HOME}/.gnupg
 whitelist ${HOME}/.rolo
 
 # To store files
-whitelist ${HOME}/Downloads
+whitelist ${DOWNLOADS}
 
 whitelist /tmp/user/1000/emacs1000/
 whitelist /tmp/user/1000/mutt1000/

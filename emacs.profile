@@ -11,7 +11,7 @@ include ${HOME}/.config/firejail/noexec-tmp.inc
 whitelist /tmp/user/1000/
 whitelist /tmp/.X11-unix/
 
-whitelist ${HOME}/Downloads
+whitelist ${DOWNLOADS}
 whitelist ${HOME}/Documents
 whitelist ${HOME}/.emacs
 whitelist ${HOME}/.emacs.d
