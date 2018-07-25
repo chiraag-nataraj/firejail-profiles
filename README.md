@@ -34,6 +34,7 @@ List of currently-supported programs:
 * Dropbox
 * Fetchmail
 * Firefox (regular and ESR)
+* Flameshot
 * Flowblade
 * Fontforge
 * FreeCAD
