@@ -5,6 +5,8 @@ This is a collection of tighter firejail (https://github.com/netblue30/firejail)
 
 I am slowly switching the profiles to use a `common.inc` file so that maintenance becomes easier and I cut down on duplicate stuff.
 
+Just a note: I would highly recommend using `systemd` to sandbox system processes. I personally do not use `firejail` to sandbox system processes since I'm using `systemd` to start the process anyway (so it's easier to use the sandboxing capabilities of `systemd` itself).
+
 ## Utilities
 
 Currently there is one utility file in this repository: `gen_libraries`. `gen_libraries` is a collection of `bash` functions which helps dynamically resolve the libraries needed by a program in a more powerful way than the built-in one shipped with `firejail`. Most pertinently, it allows passing a folder as the first argument, in which case it will use `find` to locate all files within the folder and run `ldd` on each of them. This makes it easier, say, to compile a list for `firefox`.
