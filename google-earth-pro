@@ -1,0 +1,11 @@
+#!/bin/bash
+
+GEDIR=/opt/google/earth/pro
+GENLIB=~/scripts/gen_libraries
+
+. $GENLIB
+
+LIBS=`compile_list ${GEDIR} libproxy,libgnome-keyring.so.0,libedit.so.2,libLLVM-6.0.so.1,libelf.so.1,libdrm_amdgpu.so.1,libdrm_radeon.so.1,libdrm_nouveau.so.2,libsensors.so.4,dri,libXxf86vm.so.1,libxcb-dri2.so.0,libxcb-glx.so.0,libXdamage.so.1,libxshmfence.so.1,libxcb-sync.so.1,libxcb-present.so.0,libxcb-xfixes.so.0,libxcb-dri3.so.0,libncurses.so.6,libtinfo.so.6,libGLX_mesa.so.0,libglapi.so.0,libnss_dns.so,libnss_files.so,libnss_nis.so,libnss_compat.so,libnss_resolve.so,libXcursor.so.1,nss`
+
+firejail --private-lib="$LIBS" /usr/bin/google-earth-pro;
+rm ~/.googleearth/instance-running-lock
