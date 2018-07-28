@@ -47,6 +47,7 @@ List of currently-supported programs:
 * GIMP
 * Google Chrome
 * Google Earth Pro
+* Gradio
 * Hugin
 * ImageJ
 * Inkscape
