@@ -6,7 +6,11 @@ include ${HOME}/.config/firejail/common.inc
 include ${HOME}/.config/firejail/noexec-home.inc
 include ${HOME}/.config/firejail/noexec-tmp.inc
 
-# Necessary to get Mutt working
+mkdir ${HOME}/.mutt
+mkdir ${HOME}/.muttrc
+mkdir ${HOME}/.mutt_cache
+mkdir ${HOME}/.signatures
+
 whitelist ${HOME}/.mutt
 whitelist ${HOME}/.muttrc
 whitelist ${HOME}/.mutt_certificates
@@ -17,8 +21,6 @@ whitelist ${HOME}/.mutt_cache
 whitelist ${HOME}/Mail
 whitelist ${HOME}/.gnupg
 whitelist ${HOME}/.rolo
-
-# To store files
 whitelist ${DOWNLOADS}
 
 whitelist /tmp/user/1000/emacs1000/
@@ -29,7 +31,6 @@ whitelist /tmp/user/1000/mutt1000/
 private-bin sh,dash,mutt,mutt_dotlock,bash,emacsclient,emacsclient.emacs25,elinks,gpg,gpg-agent,gpgsm,pinentry,dig,awk,pinentry-gtk-2,mutt_vc_query
 private-lib x86_64-linux-gnu/sasl2,nss,libdb-5.3.so,libcrypt-2.27.so,libcrypto.so.1.1,gconv,libapparmor.so.1,libtinfo.so.6,libtic.so.6,terminfo
 
-# private-dev
 whitelist /dev/stdout
 whitelist /dev/stdin
 whitelist /dev/stderr

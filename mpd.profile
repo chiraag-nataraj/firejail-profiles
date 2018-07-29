@@ -2,6 +2,9 @@ include ${HOME}/.config/firejail/common.inc
 include ${HOME}/.config/firejail/noexec-home.inc
 include ${HOME}/.config/firejail/noexec-tmp.inc
 
+mkdir ${HOME}/mpd
+mkfile ${HOME}/.mpdconf
+
 whitelist ${HOME}/Music
 whitelist ${HOME}/mpd
 whitelist ${HOME}/.mpdconf

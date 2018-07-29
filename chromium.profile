@@ -5,17 +5,19 @@ ignore nonewprivs
 ignore caps.drop
 ignore net
 ignore memory-deny-write-execute
+ignore private-dev
 
 include ${HOME}/.config/firejail/common.inc
 include ${HOME}/.config/firejail/noexec-home.inc
 include ${HOME}/.config/firejail/noexec-tmp.inc
+
+mkdir ${HOME}/.config/chromium
 
 whitelist ${HOME}/.config/chromium
 whitelist ${HOME}/.themes
 whitelist ${HOME}/.gtkrc-2.0
 
 whitelist ${DOWNLOADS}
-whitelist ${HOME}/PDF
 
 # private-bin seems to only work with firejail /usr/lib/chromium/chromium on
 # Debian... Kept it enabled since other platforms may be different

@@ -5,6 +5,8 @@ include ${HOME}/.config/firejail/common.inc
 include ${HOME}/.config/firejail/noexec-home.inc
 include ${HOME}/.config/firejail/noexec-tmp.inc
 
+mkdir ${HOME}/.local/share/TelegramDesktop
+
 whitelist ${HOME}/.local/share/TelegramDesktop
 whitelist ${DOWNLOADS}
 whitelist ${HOME}/.themes

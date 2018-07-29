@@ -10,6 +10,10 @@ include ${HOME}/.config/firejail/common.inc
 include ${HOME}/.config/firejail/noexec-home.inc
 include ${HOME}/.config/firejail/noexec-tmp.inc
 
+mkdir ${HOME}/VirtualBox_VMs
+mkdir ${HOME}/.config/VirtualBox
+mkfile ${HOME}/.config/Trolltech.conf
+
 whitelist ${DOWNLOADS}
 whitelist ${HOME}/VirtualBox_VMs
 whitelist ${HOME}/.config/VirtualBox
@@ -22,5 +26,3 @@ whitelist /dev/vboxdrvu
 whitelist /dev/vboxnetctl
 whitelist /dev/null
 whitelist /dev/dri
-whitelist /dev/sdc1
-whitelist /dev/sdc

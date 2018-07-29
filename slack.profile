@@ -6,6 +6,8 @@ include ${HOME}/.config/firejail/electron-common.inc
 include ${HOME}/.config/firejail/noexec-home.inc
 include ${HOME}/.config/firejail/noexec-tmp.inc
 
+mkdir ${HOME}/.config/Slack
+
 whitelist ${HOME}/.config/Slack
 whitelist ${HOME}/.gtkrc-2.0
 whitelist ${HOME}/.themes

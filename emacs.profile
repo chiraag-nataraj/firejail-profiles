@@ -11,6 +11,10 @@ include ${HOME}/.config/firejail/noexec-tmp.inc
 whitelist /tmp/user/1000/
 whitelist /tmp/.X11-unix/
 
+mkfile ${HOME}/.emacs
+mkdir ${HOME}/.emacs.d
+mkdir ${HOME}/emacs_tmp/
+
 whitelist ${DOWNLOADS}
 whitelist ${HOME}/Documents
 whitelist ${HOME}/.emacs
@@ -20,8 +24,6 @@ whitelist ${HOME}/.gnupg
 whitelist ${HOME}/.git
 whitelist ${HOME}/mpd/socket
 whitelist ${HOME}/texmf
-
-mkdir ${HOME}/emacs_tmp/
 whitelist ${HOME}/emacs_tmp
 
 keep-var-tmp

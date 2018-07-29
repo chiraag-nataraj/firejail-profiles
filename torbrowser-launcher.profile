@@ -4,6 +4,9 @@ ignore memory-deny-write-execute
 include ${HOME}/.config/firejail/common.inc
 include ${HOME}/.config/firejail/noexec-tmp.inc
 
+mkdir ${HOME}/.local/share/torbrowser
+mkdir ${HOME}/.config/torbrowser
+
 whitelist ${DOWNLOADS}
 whitelist ${HOME}/.local/share/torbrowser
 whitelist ${HOME}/.config/torbrowser

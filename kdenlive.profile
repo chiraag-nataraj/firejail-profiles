@@ -5,6 +5,8 @@ include ${HOME}/.config/firejail/common.inc
 include ${HOME}/.config/firejail/noexec-home.inc
 include ${HOME}/.config/firejail/noexec-tmp.inc
 
+mkdir ${HOME}/kdenlive
+
 # Apparently these break kdenlive for some people - they work for me though?
 whitelist ${HOME}/.config/
 whitelist ${HOME}/kdenlive

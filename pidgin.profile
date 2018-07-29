@@ -4,6 +4,8 @@ include ${HOME}/.config/firejail/common.inc
 include ${HOME}/.config/firejail/noexec-home.inc
 include ${HOME}/.config/firejail/noexec-tmp.inc
 
+mkdir ${HOME}/.purple
+
 whitelist ${DOWNLOADS}
 whitelist ${HOME}/.purple
 whitelist ${HOME}/.config/gtk-3.0

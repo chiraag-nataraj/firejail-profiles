@@ -5,6 +5,8 @@ include ${HOME}/.config/firejail/common.inc
 include ${HOME}/.config/firejail/electron-common.inc
 include ${HOME}/.config/firejail/noexec-home.inc
 
+mkdir ${HOME}/.config/Messenger for Desktop
+
 whitelist ${HOME}/.config/Messenger for Desktop
 whitelist ${DOWNLOADS}
 whitelist ${HOME}/.themes
