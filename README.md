@@ -68,6 +68,7 @@ List of currently-supported programs:
 * QPDFView
 * Ricochet
 * Scribus
+* Scrot
 * Shotcut
 * Signal Desktop
 * Skype
