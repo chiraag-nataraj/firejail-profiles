@@ -59,6 +59,7 @@ List of currently-supported programs:
 * Macrofusion
 * Messenger For Desktop
 * MPD
+* MPV
 * MuPDF
 * Mutt
 * Natron (thanks @triceratops1!)
