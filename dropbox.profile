@@ -1,8 +1,8 @@
 ignore net
 ignore memory-deny-write-execute
+ignore noexec ${HOME}
 
 include ${HOME}/.config/firejail/common.inc
-include ${HOME}/.config/firejail/noexec-tmp.inc
 
 mkdir ${HOME}/Dropbox
 mkdir ${HOME}/.dropbox

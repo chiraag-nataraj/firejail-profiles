@@ -6,10 +6,9 @@ ignore caps.drop
 ignore net
 ignore memory-deny-write-execute
 ignore private-dev
+ignore nou2f
 
 include ${HOME}/.config/firejail/common.inc
-include ${HOME}/.config/firejail/noexec-home.inc
-include ${HOME}/.config/firejail/noexec-tmp.inc
 
 mkdir ${HOME}/.config/chromium
 

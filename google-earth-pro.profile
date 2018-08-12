@@ -3,8 +3,6 @@ ignore memory-deny-write-execute
 ignore private-opt
 
 include ${HOME}/.config/firejail/common.inc
-include ${HOME}/.config/firejail/noexec-home.inc
-include ${HOME}/.config/firejail/noexec-tmp.inc
 
 mkdir ${HOME}/.config/Google
 mkdir ${HOME}/.googleearth

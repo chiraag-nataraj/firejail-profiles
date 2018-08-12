@@ -1,1 +1,0 @@
-noexec ${HOME}

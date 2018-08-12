@@ -2,8 +2,6 @@ ignore private-tmp
 ignore private-dev
 
 include ${HOME}/.config/firejail/common.inc
-include ${HOME}/.config/firejail/noexec-home.inc
-include ${HOME}/.config/firejail/noexec-tmp.inc
 
 # private-bin emacs,emacs-gtk,gpg,gpg-agent,pinentry,pinentry-gtk2,epdfinfo,sh,7z,7za,gzip,tar,xz,ls,cp,ln,rm,df,bash,ispell,xelatex,tex,latex,pdflatex,xdvipdfmx,w3m,gnuplot,asy,git
 # private-etc emacs,alternatives,passwd,localtime,fonts
@@ -16,7 +14,7 @@ mkdir ${HOME}/.emacs.d
 mkdir ${HOME}/emacs_tmp/
 
 whitelist ${DOWNLOADS}
-whitelist ${HOME}/Documents
+whitelist ${DOCUMENTS}
 whitelist ${HOME}/.emacs
 whitelist ${HOME}/.emacs.d
 whitelist ${HOME}/.config/gtk-3.0

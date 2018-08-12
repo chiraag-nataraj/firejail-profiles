@@ -1,9 +1,9 @@
 ignore private-opt
 ignore net
+ignore noexec /tmp
 
 include ${HOME}/.config/firejail/common.inc
 include ${HOME}/.config/firejail/electron-common.inc
-include ${HOME}/.config/firejail/noexec-home.inc
 
 mkdir ${HOME}/.config/Messenger for Desktop
 
