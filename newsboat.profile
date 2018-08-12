@@ -1,6 +1,5 @@
 ignore net none
 ignore private-tmp
-# ignore blacklist /usr/local/bin
 
 include ${HOME}/.config/firejail/common.inc
 
@@ -11,3 +10,4 @@ whitelist /tmp/.X11-unix/X0
 env TMPDIR=/tmp/user/1000/
 
 private-bin newsboat,sensible-browser,firefox,emacsclient,sh,which
+private-etc alternatives,hosts,nsswitch.conf,resolv.conf,mime.types,mailcap,ssl,newsboat
