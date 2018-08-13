@@ -11,3 +11,4 @@ env TMPDIR=/tmp/user/1000/
 
 private-bin newsboat,emacsclient,sh
 private-etc alternatives,hosts,nsswitch.conf,resolv.conf,mime.types,mailcap,ssl,newsboat
+private-lib terminfo
