@@ -9,5 +9,5 @@ whitelist /tmp/user/1000/
 whitelist /tmp/.X11-unix/X0
 env TMPDIR=/tmp/user/1000/
 
-private-bin newsboat,sensible-browser,firefox,emacsclient,sh,which
+private-bin newsboat,emacsclient,sh
 private-etc alternatives,hosts,nsswitch.conf,resolv.conf,mime.types,mailcap,ssl,newsboat
