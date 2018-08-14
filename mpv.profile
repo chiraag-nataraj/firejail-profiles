@@ -7,6 +7,5 @@ whitelist ${HOME}/.config/mpv
 whitelist ${DOWNLOADS}
 whitelist ${VIDEOS}
 whitelist ${MUSIC}
-whitelist ${HOME}/POD
 
 private-bin mpv
