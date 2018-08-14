@@ -1,4 +1,4 @@
-# Originally contributed by triceratops1 (https://github.com/triceratops1)
+# Originally contributed by triceratops1
 # Rewritten by chiraag-nataraj
 
 ignore memory-deny-write-execute

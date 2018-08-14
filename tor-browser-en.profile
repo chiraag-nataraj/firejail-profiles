@@ -1,3 +1,6 @@
+# Originally contributed by robotanarchy
+# Rewritten by chiraag-nataraj
+
 ignore net
 ignore memory-deny-write-execute
 ignore noexec ${HOME}
