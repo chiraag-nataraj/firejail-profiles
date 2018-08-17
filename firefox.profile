@@ -26,3 +26,4 @@ whitelist /usr/share/mozilla
 whitelist /usr/share/fonts
 whitelist /usr/share/icons
 whitelist /usr/share/themes
+whitelist /usr/share/mime
