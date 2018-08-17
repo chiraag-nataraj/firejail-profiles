@@ -7,6 +7,7 @@ private-tmp
 private-dev
 disable-mnt
 private-opt emp
+private-srv emp
 
 shell none
 seccomp
