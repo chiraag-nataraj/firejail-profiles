@@ -9,3 +9,7 @@ whitelist ${VIDEOS}
 whitelist ${MUSIC}
 
 private-bin mpv
+private-etc mpv,alternatives,fonts
+
+whitelist /usr/share/X11
+whitelist /usr/share/fonts
