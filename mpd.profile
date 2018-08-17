@@ -13,3 +13,5 @@ read-only ${HOME}/Music/
 private-bin mpd,bash
 private-etc emp
 private-lib
+
+blacklist /usr/share/
