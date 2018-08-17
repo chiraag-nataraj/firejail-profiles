@@ -29,6 +29,8 @@ whitelist /tmp/user/1000/mutt1000/
 private-bin sh,dash,mutt,mutt_dotlock,bash,emacsclient,emacsclient.emacs25,elinks,gpg,gpg-agent,gpgsm,pinentry,dig,awk,pinentry-gtk-2,mutt_vc_query
 private-lib x86_64-linux-gnu/sasl2,nss,libdb-5.3.so,libcrypt-2.27.so,libcrypto.so.1.1,gconv,libapparmor.so.1,libtinfo.so.6,libtic.so.6,terminfo
 
+whitelist /usr/share/locale
+
 whitelist /dev/stdout
 whitelist /dev/stdin
 whitelist /dev/stderr
