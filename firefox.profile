@@ -22,6 +22,7 @@ private-bin firefox,firefox-esr,which,sh,env
 private-etc hosts,passwd,mime.types,fonts,mailcap,firefox,xdg,gtk-3.0,X11,pulse,alternatives,localtime,nsswitch.conf,resolv.conf
 
 whitelist /usr/share/firefox
+whitelist /usr/share/mozilla
 whitelist /usr/share/fonts
 whitelist /usr/share/icons
 whitelist /usr/share/themes
