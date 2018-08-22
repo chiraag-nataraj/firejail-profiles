@@ -1,9 +1,7 @@
 # Firejail profile for default
 # This file is overwritten after every install/update
 # Persistent local customizations
-include /etc/firejail/default.local
-# Persistent global definitions
-include /etc/firejail/globals.local
+include /etc/firejail/pybitmessage.local
 
 # generic gui profile
 # depending on your usage, you can enable some of the commands below:
@@ -11,14 +9,11 @@ noblacklist /sbin
 noblacklist /usr/local/sbin
 noblacklist /usr/sbin
 
-noexec /sbin
-noexec /usr/local/sbin
-noexec /usr/sbin
-
 include /etc/firejail/disable-common.inc
 include /etc/firejail/disable-devel.inc
 include /etc/firejail/disable-passwdmgr.inc
 include /etc/firejail/disable-programs.inc
+include /etc/firejail/whitelist-var-common.inc
 
 caps.drop all
 ipc-namespace
@@ -44,4 +39,7 @@ private-tmp
 
 memory-deny-write-execute
 noexec ${HOME}
+noexec /sbin
+noexec /usr/local/sbin
+noexec /usr/sbin
 noexec /tmp
