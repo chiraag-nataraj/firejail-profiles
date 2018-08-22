@@ -30,7 +30,7 @@ then
     SRCDIR=${PROFILE}
     PROFILE=$(mktemp -d -p ~/.mozilla/firefox/)
     NAME=$(basename $PROFILE)
-    TOCOPY=( extensions browser-extension-data extension-preferences.json extension-settings.json extensions.json prefs.js )
+    TOCOPY=( extensions browser-extension-data extension-preferences.json extension-settings.json extensions.json prefs.js search.json search-meta.json )
     RMPROF=1
     if [ "$COPY" -eq 1 ]
     then
@@ -41,7 +41,7 @@ then
     fi
 fi
 
-FXCMD="${FIREJAIL} -- firefox --new-instance --profile ${PROFILE} $*"
+FXCMD="${FIREJAIL} --name=firefox-${NAME} -- firefox --new-instance --profile ${PROFILE} $*"
 
 # systemd-specific behavior if enabled
 
