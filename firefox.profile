@@ -27,3 +27,7 @@ whitelist /usr/share/fonts
 whitelist /usr/share/icons
 whitelist /usr/share/themes
 whitelist /usr/share/mime
+whitelist /usr/share/zoneinfo
+whitelist /usr/share/locale
+whitelist /usr/share/GConf
+whitelist /usr/share/glib-2.0
