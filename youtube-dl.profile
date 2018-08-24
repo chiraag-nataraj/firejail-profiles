@@ -3,7 +3,7 @@ ignore memory-deny-write-execute
 
 include ${HOME}/.config/firejail/common.inc
 
-whitelist ${HOME}/Videos
+whitelist ${VIDEOS}
 whitelist ${DOWNLOADS}
 
 private-bin python3,python3.6,youtube-dl,ffmpeg

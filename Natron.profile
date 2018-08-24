@@ -12,7 +12,7 @@ whitelist ${HOME}/.config/INRIA/
 whitelist ${HOME}/.gtkrc-2.0
 whitelist ${HOME}/.themes
 whitelist ${DOWNLOADS}
-whitelist ${HOME}/Videos
+whitelist ${VIDEOS}
 
 whitelist /opt/natron
 

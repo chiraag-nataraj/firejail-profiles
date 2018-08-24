@@ -6,7 +6,7 @@ mkdir ${HOME}/.config/blender
 
 whitelist ${HOME}/.config/blender
 whitelist ${DOWNLOADS}
-whitelist ${HOME}/Videos
+whitelist ${VIDEOS}
 
 private-bin blender
 private-etc pulse,fonts,alternatives

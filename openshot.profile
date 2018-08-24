@@ -7,6 +7,6 @@ mkdir ${HOME}/.openshot_qt/
 whitelist ${HOME}/.openshot_qt/
 whitelist ${HOME}/.gtkrc-2.0
 whitelist ${DOWNLOADS}
-whitelist ${HOME}/Videos/
+whitelist ${VIDEOS}
 
 private-bin openshot-qt,python3

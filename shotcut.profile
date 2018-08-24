@@ -3,7 +3,7 @@ include ${HOME}/.config/firejail/common.inc
 mkdir ${HOME}/.config/Meltytech
 
 whitelist ${DOWNLOADS}
-whitelist ${HOME}/Videos
+whitelist ${VIDEOS}
 whitelist ${HOME}/.config/Meltytech
 
 private-bin shotcut,melt,qmelt,nice

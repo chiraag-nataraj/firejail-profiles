@@ -6,7 +6,7 @@ ignore memory-deny-write-execute
 include ${HOME}/.config/firejail/common.inc
 
 whitelist ${DOWNLOADS}
-whitelist ${HOME}/Videos
+whitelist ${VIDEOS}
 
 private-bin zart,ffmpeg,melt,ffprobe,ffplay
 private-etc fonts,X11

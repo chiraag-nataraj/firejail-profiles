@@ -4,7 +4,7 @@ mkfile ${HOME}/.lmmsrc.xml
 mkdir ${HOME}/lmms
 
 whitelist ${DOWNLOADS}
-whitelist ${HOME}/Music
+whitelist ${MUSIC}
 whitelist ${HOME}/.lmmsrc.xml
 whitelist ${HOME}/lmms
 
