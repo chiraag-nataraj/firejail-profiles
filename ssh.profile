@@ -7,3 +7,5 @@ whitelist ${HOME}/.ssh
 
 writable-run-user
 join-or-start ssh
+
+private-bin ssh
