@@ -9,3 +9,4 @@ writable-run-user
 join-or-start ssh
 
 private-bin ssh
+private-etc ssh,resolv.conf,nsswitch.conf,hosts,passwd
