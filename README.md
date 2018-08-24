@@ -75,6 +75,7 @@ List of currently-supported programs:
 * Signal Desktop
 * Skype
 * Slack Desktop
+* SSH
 * Synfig Studio
 * Telegram Desktop
 * Tor Browser Bundle (through the torbrowser-launcher package on Debian)
