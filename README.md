@@ -45,6 +45,7 @@ List of currently-supported programs:
 * Geany
 * Gerbera
 * GIMP
+* Git
 * Google Chrome
 * Google Earth Pro
 * Gradio
