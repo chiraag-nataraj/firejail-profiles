@@ -6,7 +6,7 @@ mkdir ${HOME}/.config/ardour4
 mkdir ${HOME}/.config/ardour5
 
 whitelist ${DOWNLOADS}
-whitelist ${HOME}/Documents
+whitelist ${DOCUMENTS}
 whitelist ${HOME}/.config/ardour4
 whitelist ${HOME}/.config/ardour5
 whitelist ${HOME}/.lv2

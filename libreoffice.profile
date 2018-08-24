@@ -6,7 +6,7 @@ include ${HOME}/.config/firejail/common.inc
 mkdir ${HOME}/.config/libreoffice
 
 whitelist ${DOWNLOADS}
-whitelist ${HOME}/Documents
+whitelist ${DOCUMENTS}
 whitelist ${HOME}/.config/libreoffice
 whitelist ${HOME}/.config/gtk-3.0
 whitelist ${HOME}/.gtkrc-2.0

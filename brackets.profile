@@ -14,7 +14,7 @@ whitelist ${HOME}/.config/Brackets
 whitelist ${HOME}/.gtkrc-2.0
 whitelist ${HOME}/.themes
 whitelist ${DOWNLOADS}
-whitelist ${HOME}/Documents
+whitelist ${DOCUMENTS}
 
 whitelist /opt/brackets/
 whitelist /opt/google/

@@ -4,7 +4,7 @@ mkdir ${HOME}/.scribus/
 mkfile ${HOME}/.config/Trolltech.conf
 
 whitelist ${DOWNLOADS}
-whitelist ${HOME}/Documents/
+whitelist ${DOCUMENTS}
 whitelist ${HOME}/.scribus/
 whitelist ${HOME}/.gtkrc-2.0
 whitelist ${HOME}/.config/Trolltech.conf

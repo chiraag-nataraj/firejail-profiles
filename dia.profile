@@ -8,7 +8,7 @@ whitelist ${HOME}/.icons
 whitelist ${HOME}/.dia
 
 whitelist ${DOWNLOADS}
-whitelist ${HOME}/Documents
+whitelist ${DOCUMENTS}
 
 private-bin dia
 private-etc fonts,X11
