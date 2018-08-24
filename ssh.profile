@@ -10,3 +10,8 @@ join-or-start ssh
 
 private-bin ssh
 private-etc ssh,resolv.conf,nsswitch.conf,hosts,passwd
+private-lib openssh
+
+blacklist /usr/share/
+
+quiet
