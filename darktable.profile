@@ -4,7 +4,7 @@ mkdir ${HOME}/.config/darktable
 mkdir ${HOME}/.cache/darktable
 
 whitelist ${DOWNLOADS}
-whitelist ${HOME}/Pictures
+whitelist ${PICTURES}
 whitelist ${HOME}/.config/darktable
 whitelist ${HOME}/.cache/darktable
 

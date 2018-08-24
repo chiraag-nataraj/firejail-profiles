@@ -8,7 +8,7 @@ whitelist ${HOME}/.themes
 whitelist ${HOME}/.fonts
 
 whitelist ${DOWNLOADS}
-whitelist ${HOME}/Pictures
+whitelist ${PICTURES}
 
 private-bin gimp,gimp-2.10,gimp-console,gimp-console-2.10,python2.7
 private-etc gimp,fonts,alternatives

@@ -3,7 +3,7 @@ include ${HOME}/.config/firejail/common.inc
 mkdir ${HOME}/.config/viewnior
 
 whitelist ${DOWNLOADS}
-whitelist ${HOME}/Pictures
+whitelist ${PICTURES}
 whitelist ${HOME}/.gtkrc-2.0
 whitelist ${HOME}/.themes
 whitelist ${HOME}/.config/viewnior

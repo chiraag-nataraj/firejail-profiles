@@ -5,7 +5,7 @@ include ${HOME}/.config/firejail/common.inc
 mkdir ${HOME}/.LuminanceHDR
 mkdir ${HOME}/.config/Luminance HDR Development Team
 
-whitelist ${HOME}/Pictures
+whitelist ${PICTURES}
 whitelist ${DOWNLOADS}
 whitelist ${HOME}/.LuminanceHDR
 whitelist ${HOME}/.config/Luminance HDR Development Team

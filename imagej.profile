@@ -6,7 +6,7 @@ whitelist ${HOME}/.imagej
 whitelist ${HOME}/.gtkrc-2.0
 whitelist ${HOME}/.gtkrc.mine
 whitelist ${HOME}/.themes
-whitelist ${HOME}/Pictures
+whitelist ${PICTURES}
 whitelist ${DOWNLOADS}
 
 private-bin imagej,bash,grep,sort,tail,tr,cut,whoami,hostname,uname,mkdir,ls,touch,free,awk,update-java-alternatives,basename,xprop,rm,ln
