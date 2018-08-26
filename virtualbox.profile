@@ -5,6 +5,7 @@ ignore noroot
 ignore nonewprivs
 ignore private-dev
 ignore net
+ignore memory-deny-write-execute
 
 include ${HOME}/.config/firejail/common.inc
 
