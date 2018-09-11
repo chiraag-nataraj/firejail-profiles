@@ -18,3 +18,4 @@ whitelist /usr/share/themes
 whitelist /usr/share/mime
 whitelist /usr/share/lensfun
 whitelist /usr/share/locale
+whitelist /usr/share/glib-2.0
