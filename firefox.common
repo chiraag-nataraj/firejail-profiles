@@ -4,8 +4,9 @@ PROFILE=$1
 NAME=$(basename $PROFILE)
 PRIVATE=$2
 COPY=$3
+NETNS=$4
 RMPROF=0
-shift 3
+shift 4
 
 FXLIBDIR=/usr/lib/firefox
 GENLIB=~/scripts/gen_libraries
@@ -30,7 +31,7 @@ then
     SRCDIR=${PROFILE}
     PROFILE=$(mktemp -d -p ~/.mozilla/firefox/)
     NAME=$(basename $PROFILE)
-    TOCOPY=( extensions browser-extension-data extension-preferences.json extension-settings.json extensions.json prefs.js search.json search-meta.json )
+    TOCOPY=( extensions browser-extension-data extension-preferences.json extension-settings.json extensions.json prefs.js search.json.mozlz4 search-meta.json pluginreg.dat )
     RMPROF=1
     if [ "$COPY" -eq 1 ]
     then
@@ -41,7 +42,12 @@ then
     fi
 fi
 
-FXCMD="${FIREJAIL} --name=firefox-${NAME} -- firefox --new-instance --profile ${PROFILE} $*"
+if [ "$NETNS" != "" ]
+then
+    FXCMD="${FIREJAIL} --name=firefox-${NAME} --net=${NETNS} -- firefox --new-instance --profile ${PROFILE} $*"
+else
+    FXCMD="${FIREJAIL} --name=firefox-${NAME} -- firefox --new-instance --profile ${PROFILE} $*"
+fi
 
 # systemd-specific behavior if enabled
 
