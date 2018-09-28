@@ -6,14 +6,14 @@ ignore memory-deny-write-execute
 
 include ${HOME}/.config/firejail/common.inc
 
-mkdir ${HOME}/.mozilla
+mkdir ${HOME}/.mozilla/firefox
 
-whitelist ${HOME}/.mozilla
+whitelist ${HOME}/.mozilla/firefox
 whitelist ${DOWNLOADS}
-whitelist ${HOME}/.pulse/
+whitelist ${HOME}/.pulse
 whitelist ${HOME}/.cache/mozilla/firefox
-whitelist ${HOME}/.config/pulse/
-whitelist ${HOME}/.config/gtk-3.0/
+whitelist ${HOME}/.config/pulse
+whitelist ${HOME}/.config/gtk-3.0
 whitelist ${HOME}/.gtkrc-2.0
 whitelist ${HOME}/.gtkrc.mine
 whitelist ${HOME}/.themes
