@@ -21,7 +21,7 @@ if [ "$PRIVLIB" -eq 1 ]
 then
     . $GENLIB
     LIBS=`compile_list ${FXLIBDIR} nss,pulseaudio,nvidia,python3.6,gconv,libpulse.so.0,libFLAC.so.8,libogg.so.0,libopus.so.0,libvorbis.so.0,libvorbisenc.so.2,libavcodec.so.57,libavutil.so.55,libcrystalhd.so.3,libdrm.so.2,libGL.so.1,libnss_resolve.so.2,libnss_systemd.so.2`
-    FIREJAIL="${FIREJAIL} --private-lib=$LIBS"
+    FIREJAIL="${FIREJAIL} --private-lib=$LIBS --nowhitelist=${HOME}/.mozilla/firefox"
 fi
 
 # Deal with creating a private profile if requested
@@ -31,7 +31,7 @@ then
     SRCDIR=${PROFILE}
     PROFILE=$(mktemp -d -p ~/.mozilla/firefox/)
     NAME=$(basename $PROFILE)
-    TOCOPY=( extensions browser-extension-data extension-preferences.json extension-settings.json extensions.json prefs.js search.json.mozlz4 search-meta.json pluginreg.dat )
+    TOCOPY=( extensions browser-extension-data extension-preferences.json extension-settings.json extensions.json prefs.js search.json.mozlz4 pluginreg.dat )
     RMPROF=1
     if [ "$COPY" -eq 1 ]
     then
@@ -44,9 +44,9 @@ fi
 
 if [ "$NETNS" != "" ]
 then
-    FXCMD="${FIREJAIL} --name=firefox-${NAME} --net=${NETNS} -- firefox --new-instance --profile ${PROFILE} $*"
+    FXCMD="${FIREJAIL} --name=firefox-${NAME} --whitelist=${PROFILE} --net=${NETNS} -- firefox --new-instance --profile ${PROFILE} $*"
 else
-    FXCMD="${FIREJAIL} --name=firefox-${NAME} -- firefox --new-instance --profile ${PROFILE} $*"
+    FXCMD="${FIREJAIL} --name=firefox-${NAME} --whitelist=${PROFILE} -- firefox --new-instance --profile ${PROFILE} $*"
 fi
 
 # systemd-specific behavior if enabled
