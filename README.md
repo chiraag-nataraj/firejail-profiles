@@ -36,6 +36,7 @@ List of currently-supported programs:
 * Calligra
 * Darktable
 * Dia
+* Discord
 * Dropbox
 * Fetchmail
 * Firefox (regular and ESR)
