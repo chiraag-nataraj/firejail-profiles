@@ -16,7 +16,7 @@ An example script, `firefox.common`, which makes use of `gen_libraries` is provi
 * It can simply load a profile (pass the path to the profile as the first argument and `0` as the second and third arguments).
 * It can create a temporary profile which is completely empty (pass the path to any profile as the first argument, `1` as the second argument, and `0` as the third argument).
 * It can create a temporary profile and copy over files from another profile (pass the path to the profile which you wish to copy files from as the first argument and `1` as the second and third arguments). You can edit the list of files and folders to be copied over by editing the `$TOCOPY` variable.
-* It can ask `firejail` to create a new network namespace for the specified interface (pass the interface name as the fourth argument, pass "" if you don't want a network namespace).
+* It can ask `firejail` to create a new network namespace for the specified interface (pass the interface name as the fourth argument, pass "" if you don't want a network namespace). You can (should) also edit `vpncmd` which should check for a VPN connection and disable the new network namespace (if requested) automatically. One example with `systemctl` is provided.
 
 You can disable the `systemd` specific parts of the script by setting `$USE_SYSTEMD` to `0`. You may also need to edit the list of additional libraries (the second argument to `compile_list`), since that list is what works for me on my system but may not be enough on yours.
 

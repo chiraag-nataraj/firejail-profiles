@@ -12,6 +12,10 @@ FXLIBDIR=/usr/lib/firefox
 GENLIB=~/scripts/gen_libraries
 PRIVLIB=1
 USE_SYSTEMD=1
+vpncmd()
+{
+    systemctl -q is-active openvpn@us3-TCP-chaanakya && NETNS="" || NETNS="$NETNS"
+}
 
 FIREJAIL="firejail"
 
@@ -41,6 +45,8 @@ then
 	done
     fi
 fi
+
+vpncmd
 
 if [ "$NETNS" != "" ]
 then
