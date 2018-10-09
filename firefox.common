@@ -17,7 +17,7 @@ vpncmd()
     systemctl -q is-active openvpn@us3-TCP-chaanakya && NETNS="" || NETNS="$NETNS"
 }
 
-FIREJAIL="firejail"
+FIREJAIL="firejail --nowhitelist=${HOME}/.mozilla/firefox"
 
 # private-lib generation if enabled
 
@@ -25,7 +25,7 @@ if [ "$PRIVLIB" -eq 1 ]
 then
     . $GENLIB
     LIBS=`compile_list ${FXLIBDIR} nss,pulseaudio,nvidia,python3.6,gconv,libpulse.so.0,libFLAC.so.8,libogg.so.0,libopus.so.0,libvorbis.so.0,libvorbisenc.so.2,libavcodec.so.57,libavutil.so.55,libcrystalhd.so.3,libdrm.so.2,libGL.so.1,libnss_resolve.so.2,libnss_systemd.so.2`
-    FIREJAIL="${FIREJAIL} --private-lib=$LIBS --nowhitelist=${HOME}/.mozilla/firefox"
+    FIREJAIL="${FIREJAIL} --private-lib=$LIBS"
 fi
 
 # Deal with creating a private profile if requested
@@ -46,14 +46,16 @@ then
     fi
 fi
 
+FIREJAIL="${FIREJAIL} --whitelist=${PROFILE} --name=firefox-${NAME}"
+
 vpncmd
 
 if [ "$NETNS" != "" ]
 then
-    FXCMD="${FIREJAIL} --name=firefox-${NAME} --whitelist=${PROFILE} --net=${NETNS} -- firefox --new-instance --profile ${PROFILE} $*"
-else
-    FXCMD="${FIREJAIL} --name=firefox-${NAME} --whitelist=${PROFILE} -- firefox --new-instance --profile ${PROFILE} $*"
+    FIREJAIL="${FIREJAIL} --net=${NETNS}"
 fi
+
+FXCMD="${FIREJAIL} -- firefox --new-instance --profile ${PROFILE} $*"
 
 # systemd-specific behavior if enabled
 
