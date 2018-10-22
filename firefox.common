@@ -33,9 +33,9 @@ fi
 if [ "$PRIVATE" -eq 1 ]
 then
     SRCDIR=${PROFILE}
-    PROFILE=$(mktemp -d)
+    PROFILE=$(mktemp -d -p ~/.mozilla/firefox/)
     NAME=$(basename $PROFILE)
-    TOCOPY=( extensions browser-extension-data extension-preferences.json extension-settings.json extensions.json prefs.js search.json.mozlz4 pluginreg.dat )
+    TOCOPY=( extensions browser-extension-data extension-preferences.json extension-settings.json extensions.json prefs.js gmp gmp-widevinecdm gmp-gmpopenh264 search.json.mozlz4 pluginreg.dat )
     RMPROF=1
     if [ "$COPY" -eq 1 ]
     then
