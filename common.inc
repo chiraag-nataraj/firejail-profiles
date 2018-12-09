@@ -4,6 +4,7 @@ blacklist /usr/local/sbin
 blacklist /boot
 
 private-tmp
+read-only /tmp/.X11-unix
 private-dev
 disable-mnt
 private-opt emp
@@ -22,6 +23,7 @@ nodbus
 nou2f
 nogroups
 net none
+netfilter
 memory-deny-write-execute
 
 noexec ${HOME}
