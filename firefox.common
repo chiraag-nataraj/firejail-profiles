@@ -8,10 +8,13 @@ NETNS=$4
 RMPROF=0
 shift 4
 
-FXLIBDIR=/usr/lib/firefox
+LIBDIR=/usr/lib/firefox
 GENLIB=~/scripts/gen_libraries
+EXTRALIBS="nss,pulseaudio,nvidia,python3.6,gconv,libpulse.so.0,libFLAC.so.8,libogg.so.0,libopus.so.0,libvorbis.so.0,libvorbisenc.so.2,libavcodec.so.57,libavutil.so.55,libcrystalhd.so.3,libdrm.so.2,libGL.so.1,libnss_resolve.so.2,libnss_systemd.so.2"
 PRIVLIB=1
 USE_SYSTEMD=1
+PROFILEDIR=~/.mozilla/firefox/
+
 vpncmd()
 {
     systemctl -q is-active openvpn@us3-TCP-chaanakya && NETNS="" || NETNS="$NETNS"
@@ -24,7 +27,7 @@ FIREJAIL="firejail --nowhitelist=${HOME}/.mozilla/firefox"
 if [ "$PRIVLIB" -eq 1 ]
 then
     . $GENLIB
-    LIBS=`compile_list ${FXLIBDIR} nss,pulseaudio,nvidia,python3.6,gconv,libpulse.so.0,libFLAC.so.8,libogg.so.0,libopus.so.0,libvorbis.so.0,libvorbisenc.so.2,libavcodec.so.57,libavutil.so.55,libcrystalhd.so.3,libdrm.so.2,libGL.so.1,libnss_resolve.so.2,libnss_systemd.so.2`
+    LIBS=`compile_list ${LIBDIR} ${EXTRALIBS}`
     FIREJAIL="${FIREJAIL} --private-lib=$LIBS"
 fi
 
@@ -33,7 +36,7 @@ fi
 if [ "$PRIVATE" -eq 1 ]
 then
     SRCDIR=${PROFILE}
-    PROFILE=$(mktemp -d -p ~/.mozilla/firefox/)
+    PROFILE=$(mktemp -d -p ${PROFILEDIR})
     NAME=$(basename $PROFILE)
     TOCOPY=( extensions browser-extension-data extension-preferences.json extension-settings.json extensions.json prefs.js gmp gmp-widevinecdm gmp-gmpopenh264 search.json.mozlz4 pluginreg.dat )
     RMPROF=1
@@ -46,7 +49,10 @@ then
     fi
 fi
 
-FIREJAIL="${FIREJAIL} --whitelist=${PROFILE} --name=firefox-${NAME}"
+PROG="firefox --new-instance --profile ${PROFILE} $*"
+RPROG="firefox --profile ${PROFILE} $*"
+PROGNAME=`echo ${PROG} | cut -d' ' -f 1`
+FIREJAIL="${FIREJAIL} --whitelist=${PROFILE} --name=${PROGNAME}-${NAME}"
 
 vpncmd
 
@@ -55,28 +61,29 @@ then
     FIREJAIL="${FIREJAIL} --net=${NETNS}"
 fi
 
-FXCMD="${FIREJAIL} -- firefox --new-instance --profile ${PROFILE} $*"
+CMD="${FIREJAIL} -- ${PROG}"
+RCMD="${PROG}"
 
 # systemd-specific behavior if enabled
 
 if [ "$USE_SYSTEMD" -eq 1 ]
 then
-    FXRUNNING=$(systemctl --user --quiet is-active firefox-${NAME}.service; echo $?)
-    FXCMD="systemd-run --wait --user --unit=firefox-${NAME}.service --description=firefox-${NAME} ${FXCMD}"
+    RUNNING=$(systemctl --user --quiet is-active ${PROGNAME}-${NAME}.service; echo $?)
+    CMD="systemd-run --wait --user --unit=${PROGNAME}-${NAME}.service --description=${PROGNAME}-${NAME} ${CMD}"
 else
-    FXRUNNING=$(pgrep -f "firefox --new-instance --profile ${PROFILE}" > /dev/null; echo $?)
+    RUNNING=$(pgrep -f "${PROG}" > /dev/null; echo $?)
 fi
 
 # Open a new tab in the currently-running firefox if it's already open
 # Otherwise spawn a new firefox instance of this profile
 
-if [ "$FXRUNNING" -eq 0 ]
+if [ "$RUNNING" -eq 0 ]
 then
     # Currently broken - will open in whatever profile is default.
     # This is a Firefox issue and there isn't much I can do about it.
-    firefox --profile ${PROFILE} $*
+    $RCMD
 else
-    $FXCMD
+    $CMD
 fi
 
 # Remove profile if asked
