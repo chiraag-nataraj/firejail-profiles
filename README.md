@@ -62,6 +62,7 @@ List of currently-supported programs:
 * Macrofusion
 * Messenger For Desktop
 * MPD
+* mps-youtube (mpsyt)
 * MPV
 * MuPDF
 * Mutt
