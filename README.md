@@ -11,13 +11,13 @@ Just a note: I would highly recommend using `systemd` to sandbox system processe
 
 Currently there is one utility file in this repository: `gen_libraries`. `gen_libraries` is a collection of `bash` functions which helps dynamically resolve the libraries needed by a program in a more powerful way than the built-in one shipped with `firejail`. Most pertinently, it allows passing a folder as the first argument, in which case it will use `find` to locate all files within the folder and run `ldd` on each of them. This makes it easier, say, to compile a list for `firefox`.
 
-An example script, `private-profile.sh`, which makes use of `gen_libraries` is provided in this repository as well. `private-profile.sh` makes it easy to generate a temporary profile for an application (usually a browser) and run the application with that profile. There are five arguments to the script. In all cases where the argument is a toggle, `1` enables the feature and `0`  disables it. The arguments are as follows:
+An example script, `private-profile.sh`, which makes use of `gen_libraries` is provided in this repository as well. `private-profile.sh` makes it easy to generate a temporary profile for an application (usually a browser) and run the application with that profile. There are five possible arguments to the script. Positional arguments come at the end. The arguments are as follows:
 
-* `$1` is the path to a `.private` file. `.private` files define several application-specific variables which are used later in the script. More on this below.
-* `$2` is the path to an existing profile. This will be used in certain circumstances.
-* `$3` toggles whether the script should create a temporary profile.
-* `$4` toggles whether the script should copy certain files or folders from the existing profile to the temporary profile.
-* `$5` enables a network namespace on the given interface. `""` disables the feature while any other string is treated as the network interface to use.
+* The only positional argument is the path to a `.private` file. `.private` files define several application-specific variables which are used later in the script. More on this below.
+* `-p` is the path to an existing profile. This will be used in certain circumstances.
+* `-t` toggles whether the script should create a temporary profile.
+* `-c` toggles whether the script should copy certain files or folders from the existing profile to the temporary profile.
+* `-n` enables a network namespace on the given interface.
 
 A `.private` file defines several application-specific variables. The following variables are recognized:
 
@@ -31,7 +31,7 @@ A `.private` file defines several application-specific variables. The following 
 * `DESTDIR` is the directory to generate inside the temporary profile directory. If set to `""`, then the temporary directory itself is treated as the profile.
 * `PROG` is the command to run when the program is not already running.
 * `RPROG` is the command to run when the program is already running.
-* `ENVVARS` is a bash array used for setting any environment variables (now uses `firejail`'s environment handling!).
+* `ENVVARS` is a bash array used for setting any environment variables (now uses `firejail`'s environment handling!). Set this to an empty array (`()`) if you don't have any environment variables to pass along.
 
 There are two example `.private` files in this repo, `private-profiles/firefox.private` and `private-profiles/chromium.private`.
 

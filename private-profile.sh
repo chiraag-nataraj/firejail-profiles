@@ -1,15 +1,36 @@
 #!/bin/bash
 
+PRIVATE=0
+NAME=""
+COPY=0
+NETNS=""
+RMPROF=0
+
+while getopts "p:tcn:" arg
+do
+    case ${arg} in
+	p)
+	    PROFILE=${OPTARG}
+	    NAME=$(basename $PROFILE)
+	    ;;
+	t)
+	    PRIVATE=1
+	    ;;
+	c)
+	    COPY=1
+	    ;;
+	n)
+	    NETNS=${OPTARG}
+	    ;;
+    esac
+done
+
+shift $((OPTIND-1))
+
 VARFILE="$1"
 . "$VARFILE"
 
-PROFILE=$2
-NAME=$(basename $PROFILE)
-PRIVATE=$3
-COPY=$4
-NETNS=$5
-RMPROF=0
-shift 5
+shift
 
 vpncmd()
 {
