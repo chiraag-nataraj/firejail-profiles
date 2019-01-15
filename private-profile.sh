@@ -58,15 +58,20 @@ then
     FIREJAIL="${FIREJAIL} --net=${NETNS}"
 fi
 
+for i in "${ENVVARS[@]}"
+do
+    FIREJAIL="${FIREJAIL} --env=${i}"
+done
+
 CMD="${FIREJAIL} -- $(eval echo ${PROG})"
 RCMD="$(eval echo ${RPROG})"
 
 SYSTEMDCMD="systemd-run --wait --user --unit=${PROGNAME}-${NAME}.service --description=${PROGNAME}-${NAME}"
 
-if [ "${ENVVARS}" != "" ]
-then
-    SYSTEMDCMD="${SYSTEMDCMD} -E ${ENVVARS}"
-fi
+# if [ "${ENVVARS}" != "" ]
+# then
+#     SYSTEMDCMD="${SYSTEMDCMD} -E ${ENVVARS}"
+# fi
 
 # systemd-specific behavior if enabled
 

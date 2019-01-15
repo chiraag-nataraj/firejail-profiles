@@ -31,7 +31,7 @@ A `.private` file defines several application-specific variables. The following 
 * `DESTDIR` is the directory to generate inside the temporary profile directory. If set to `""`, then the temporary directory itself is treated as the profile.
 * `PROG` is the command to run when the program is not already running.
 * `RPROG` is the command to run when the program is already running.
-* `ENVVARS` is used for any environment variables (currently only done with `systemd` integration).
+* `ENVVARS` is a bash array used for setting any environment variables (now uses `firejail`'s environment handling!).
 
 There are two example `.private` files in this repo, `firefox.private` and `chromium.private`.
 

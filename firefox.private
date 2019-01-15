@@ -8,4 +8,4 @@ TOCOPY=( extensions browser-extension-data extension-preferences.json extension-
 DESTDIR=""
 PROG='firefox --new-instance --profile ${PROFILE} $*'
 RPROG='firefox --profile ${PROFILE} $*'
-ENVVARS="MOZ_WEBRENDER=1"
+ENVVARS=( "MOZ_WEBRENDER=1" "MOZ_ACCELERATED=1" )
