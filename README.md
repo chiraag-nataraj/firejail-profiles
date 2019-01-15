@@ -33,7 +33,7 @@ A `.private` file defines several application-specific variables. The following 
 * `RPROG` is the command to run when the program is already running.
 * `ENVVARS` is a bash array used for setting any environment variables (now uses `firejail`'s environment handling!).
 
-There are two example `.private` files in this repo, `firefox.private` and `chromium.private`.
+There are two example `.private` files in this repo, `private-profiles/firefox.private` and `private-profiles/chromium.private`.
 
 Another example script, `dropbox`, is also provided which uses `gen_libraries` to dynamically generate the library dependencies needed to get `dropbox` working with a `private-lib` filter.
 
