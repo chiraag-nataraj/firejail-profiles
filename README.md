@@ -11,14 +11,29 @@ Just a note: I would highly recommend using `systemd` to sandbox system processe
 
 Currently there is one utility file in this repository: `gen_libraries`. `gen_libraries` is a collection of `bash` functions which helps dynamically resolve the libraries needed by a program in a more powerful way than the built-in one shipped with `firejail`. Most pertinently, it allows passing a folder as the first argument, in which case it will use `find` to locate all files within the folder and run `ldd` on each of them. This makes it easier, say, to compile a list for `firefox`.
 
-An example script, `firefox.common`, which makes use of `gen_libraries` is provided in this repository as well. You should edit `$FXLIBDIR` and `$GENLIB` to point to your `firefox` lib directory (defaults to `/usr/lib/firefox`) and the `gen_libraries` script (default `~/scripts/gen_libraries`) or disable `private-lib` generation by setting `$PRIVLIB` to `0`. The script has the following features:
+An example script, `private-profile.sh`, which makes use of `gen_libraries` is provided in this repository as well. `private-profile.sh` makes it easy to generate a temporary profile for an application (usually a browser) and run the application with that profile. There are five arguments to the script. In all cases where the argument is a toggle, `1` enables the feature and `0`  disables it. The arguments are as follows:
 
-* It can simply load a profile (pass the path to the profile as the first argument and `0` as the second and third arguments).
-* It can create a temporary profile which is completely empty (pass the path to any profile as the first argument, `1` as the second argument, and `0` as the third argument).
-* It can create a temporary profile and copy over files from another profile (pass the path to the profile which you wish to copy files from as the first argument and `1` as the second and third arguments). You can edit the list of files and folders to be copied over by editing the `$TOCOPY` variable.
-* It can ask `firejail` to create a new network namespace for the specified interface (pass the interface name as the fourth argument, pass "" if you don't want a network namespace). You can (should) also edit `vpncmd` which should check for a VPN connection and disable the new network namespace (if requested) automatically. One example with `systemctl` is provided.
+* `$1` is the path to a `.private` file. `.private` files define several application-specific variables which are used later in the script. More on this below.
+* `$2` is the path to an existing profile. This will be used in certain circumstances.
+* `$3` toggles whether the script should create a temporary profile.
+* `$4` toggles whether the script should copy certain files or folders from the existing profile to the temporary profile.
+* `$5` enables a network namespace on the given interface. `""` disables the feature while any other string is treated as the network interface to use.
 
-You can disable the `systemd` specific parts of the script by setting `$USE_SYSTEMD` to `0`. You may also need to edit the list of additional libraries (the second argument to `compile_list`), since that list is what works for me on my system but may not be enough on yours.
+A `.private` file defines several application-specific variables. The following variables are recognized:
+
+* `$PRIVLIB` enables the dynamic generation of a `private-lib` filter. If enabled, the following variables should be defined:
+  * `$GENLIB` is the path to the `gen_libraries` path. 
+  * `$LIBDIR` is the path to the application's lib folder.
+  * `$EXTRALIBS` is the list of hard-coded libraries which are not automatically detected.
+* `USE_SYSTEMD` enables `systemd` integration.
+* `PROFILEDIR` is the path to the directory where profiles are stored.
+* `TOCOPY` is the list of files to copy to the temporary profile.
+* `DESTDIR` is the directory to generate inside the temporary profile directory. If set to `""`, then the temporary directory itself is treated as the profile.
+* `PROG` is the command to run when the program is not already running.
+* `RPROG` is the command to run when the program is already running.
+* `ENVVARS` is used for any environment variables (currently only done with `systemd` integration).
+
+There are two example `.private` files in this repo, `firefox.private` and `chromium.private`.
 
 Another example script, `dropbox`, is also provided which uses `gen_libraries` to dynamically generate the library dependencies needed to get `dropbox` working with a `private-lib` filter.
 

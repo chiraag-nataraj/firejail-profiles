@@ -1,0 +1,10 @@
+LIBDIR=/usr/lib/chromium
+GENLIB=~/scripts/gen_libraries
+PRIVLIB=0
+USE_SYSTEMD=1
+PROFILEDIR=~/.config/chromium/
+TOCOPY=( Extensions "Extension State" Preferences )
+DESTDIR="Default"
+PROG='/usr/lib/chromium/chromium --user-data-dir=${PROFILE} $*'
+RPROG='/usr/lib/chromium/chromium --user-data-dir=${PROFILE} $*'
+ENVVARS=""
