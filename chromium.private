@@ -1,5 +1,3 @@
-LIBDIR=/usr/lib/chromium
-GENLIB=~/scripts/gen_libraries
 PRIVLIB=0
 USE_SYSTEMD=1
 PROFILEDIR=~/.config/chromium/
