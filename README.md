@@ -53,6 +53,7 @@ List of currently-supported programs:
 * Dia
 * Discord
 * Dropbox
+* ELinks
 * Fetchmail
 * Firefox (regular and ESR)
 * Flameshot
