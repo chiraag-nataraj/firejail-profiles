@@ -37,15 +37,16 @@ vpncmd()
     systemctl -q is-active openvpn@us3-TCP-chaanakya && NETNS="" || NETNS="$NETNS"
 }
 
-FIREJAIL="firejail --nowhitelist=${PROFILEDIR}"
+FIREJAIL="firejail"
+FJARGS=( --nowhitelist="${PROFILEDIR}" )
 
 # private-lib generation if enabled
 
 if [ "$PRIVLIB" -eq 1 ]
 then
     . $GENLIB
-    LIBS=`compile_list ${LIBDIR} ${EXTRALIBS}`
-    FIREJAIL="${FIREJAIL} --private-lib=$LIBS"
+    LIBS=$(compile_list ${LIBDIR} ${EXTRALIBS})
+    FJARGS+=( --private-lib="$LIBS" )
 fi
 
 # Deal with creating a private profile if requested
@@ -70,21 +71,21 @@ then
 fi
 
 PROGNAME=$(basename $(echo ${PROG} | cut -d' ' -f 1))
-FIREJAIL="${FIREJAIL} --whitelist=${PROFILE} --name=${PROGNAME}-${NAME}"
+FJARGS+=( --whitelist="${PROFILE}" --name="${PROGNAME}-${NAME}" )
 
 vpncmd
 
 if [ "$NETNS" != "" ]
 then
-    FIREJAIL="${FIREJAIL} --net=${NETNS}"
+    FJARGS+=( --net="${NETNS}" )
 fi
 
 for i in "${ENVVARS[@]}"
 do
-    FIREJAIL="${FIREJAIL} --env=${i}"
+    FJARGS+=( --env="${i}" )
 done
 
-CMD="${FIREJAIL} -- $(eval echo ${PROG})"
+CMD="${FIREJAIL} ${FJARGS[@]} -- $(eval echo ${PROG})"
 RCMD="$(eval echo ${RPROG})"
 
 SYSTEMDCMD="systemd-run --wait --user --unit=${PROGNAME}-${NAME}.service --description=${PROGNAME}-${NAME}"
@@ -115,5 +116,5 @@ fi
 
 if [ "$RMPROF" -eq 1 ]
 then
-    rm -rf ${PROFILE}
+    rm -r ${PROFILE}
 fi
