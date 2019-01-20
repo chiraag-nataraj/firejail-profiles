@@ -6,12 +6,14 @@ COPY=0
 NETNS=""
 RMPROF=0
 
+set -ue
+
 while getopts "p:tcn:" arg
 do
     case ${arg} in
 	p)
 	    PROFILE=${OPTARG}
-	    NAME=$(basename $PROFILE)
+	    NAME=$(basename "$PROFILE")
 	    ;;
 	t)
 	    PRIVATE=1
@@ -21,6 +23,9 @@ do
 	    ;;
 	n)
 	    NETNS=${OPTARG}
+	    ;;
+	*)
+	    exit 1
 	    ;;
     esac
 done
@@ -38,68 +43,64 @@ vpncmd()
 }
 
 FIREJAIL="firejail"
-FJARGS=( --nowhitelist="${PROFILEDIR}" )
+FJARGS=( "--nowhitelist=${PROFILEDIR}" )
 
 # private-lib generation if enabled
 
 if [ "$PRIVLIB" -eq 1 ]
 then
-    . $GENLIB
-    LIBS=$(compile_list ${LIBDIR} ${EXTRALIBS})
-    FJARGS+=( --private-lib="$LIBS" )
+    . "$GENLIB"
+    LIBS=$(compile_list "${LIBDIR}" "${EXTRALIBS}")
+    FJARGS+=( "--private-lib=$LIBS" )
 fi
 
 # Deal with creating a private profile if requested
 
 if [ "$PRIVATE" -eq 1 ]
 then
-    SRCDIR=${PROFILE}
-    PROFILE=$(mktemp -d -p ${PROFILEDIR})
-    NAME=$(basename $PROFILE)
+    SRCDIR="${PROFILE}"
+    PROFILE=$(mktemp -d -p "${PROFILEDIR}")
+    NAME=$(basename "$PROFILE")
     if [ "${DESTDIR}" != "" ]
     then
-	mkdir ${PROFILE}/"${DESTDIR}"
+	mkdir "${PROFILE}"/"${DESTDIR}"
     fi
     RMPROF=1
     if [ "$COPY" -eq 1 ]
     then
 	for i in "${TOCOPY[@]}"
 	do
-	    cp -R "${SRCDIR}"/"${i}" ${PROFILE}/"${DESTDIR}"/"${i}"
+	    cp -R "${SRCDIR}"/"${i}" "${PROFILE}"/"${DESTDIR}"/"${i}"
 	done
     fi
 fi
 
-PROGNAME=$(basename $(echo ${PROG} | cut -d' ' -f 1))
-FJARGS+=( --whitelist="${PROFILE}" --name="${PROGNAME}-${NAME}" )
+SPROGNAME=$(basename "${PROGNAME}")
+
+FJARGS+=( "--whitelist=${PROFILE}" "--name=${SPROGNAME}-${NAME}" )
 
 vpncmd
 
 if [ "$NETNS" != "" ]
 then
-    FJARGS+=( --net="${NETNS}" )
+    FJARGS+=( "--net=${NETNS}" )
 fi
 
 for i in "${ENVVARS[@]}"
 do
-    FJARGS+=( --env="${i}" )
+    FJARGS+=( "--env=${i}" )
 done
 
-CMD="${FIREJAIL} ${FJARGS[@]} -- $(eval echo ${PROG})"
-RCMD="$(eval echo ${RPROG})"
+CMD="${FIREJAIL} ${FJARGS[*]} -- ${PROGNAME} $(eval echo "${PROGARGS[@]}")"
+RCMD="${PROGNAME} $(eval echo "${RPROGARGS[@]}")"
 
-SYSTEMDCMD="systemd-run --wait --user --unit=${PROGNAME}-${NAME}.service --description=${PROGNAME}-${NAME}"
-
-# if [ "${ENVVARS}" != "" ]
-# then
-#     SYSTEMDCMD="${SYSTEMDCMD} -E ${ENVVARS}"
-# fi
+SYSTEMDCMD="systemd-run --wait --user --unit=${SPROGNAME}-${NAME}.service --description=${SPROGNAME}-${NAME}"
 
 # systemd-specific behavior if enabled
 
 if [ "$USE_SYSTEMD" -eq 1 ]
 then
-    RUNNING=$(systemctl --user --quiet is-active ${PROGNAME}-${NAME}.service; echo $?)
+    RUNNING=$(systemctl --user --quiet is-active "${SPROGNAME}-${NAME}".service; echo $?)
     CMD="${SYSTEMDCMD} ${CMD}"
 else
     RUNNING=$(pgrep -f "${PROG}" > /dev/null; echo $?)
@@ -116,5 +117,5 @@ fi
 
 if [ "$RMPROF" -eq 1 ]
 then
-    rm -r ${PROFILE}
+    rm -r "${PROFILE}"
 fi

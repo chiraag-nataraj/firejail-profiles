@@ -6,6 +6,7 @@ USE_SYSTEMD=1
 PROFILEDIR=~/.mozilla/firefox/
 TOCOPY=( extensions browser-extension-data extension-preferences.json extension-settings.json extensions.json prefs.js gmp gmp-widevinecdm gmp-gmpopenh264 search.json.mozlz4 pluginreg.dat )
 DESTDIR=""
-PROG='firefox --new-instance --profile ${PROFILE} $*'
-RPROG='firefox --profile ${PROFILE} $*'
+PROGNAME="firefox"
+PROGARGS=( --new-instance --profile '${PROFILE}' '$*' )
+RPROGARGS=( --profile '${PROFILE}' '$*' )
 ENVVARS=( "MOZ_WEBRENDER=1" "MOZ_ACCELERATED=1" )

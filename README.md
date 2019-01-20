@@ -29,8 +29,9 @@ A `.private` file defines several application-specific variables. The following 
 * `PROFILEDIR` is the path to the directory where profiles are stored.
 * `TOCOPY` is the list of files to copy to the temporary profile.
 * `DESTDIR` is the directory to generate inside the temporary profile directory. If set to `""`, then the temporary directory itself is treated as the profile.
-* `PROG` is the command to run when the program is not already running.
-* `RPROG` is the command to run when the program is already running.
+* `PROGNAME` is the command to run.
+* `PROGARGS` is the array of arguments to pass when the program is not already running.
+* `RPROGARGS` is the array of arguments to pass when the program is already running.
 * `ENVVARS` is a bash array used for setting any environment variables (now uses `firejail`'s environment handling!). Set this to an empty array (`()`) if you don't have any environment variables to pass along.
 
 There are two example `.private` files in this repo, `private-profiles/firefox.private` and `private-profiles/chromium.private`.
