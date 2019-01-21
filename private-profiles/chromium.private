@@ -1,9 +1,9 @@
-PRIVLIB=0
-USE_SYSTEMD=1
-PROFILEDIR=~/.config/chromium/
-TOCOPY=( Extensions "Extension State" Preferences )
-DESTDIR="Default"
-PROGNAME="/usr/lib/chromium/chromium"
-PROGARGS=( '--user-data-dir=${PROFILE}' '$*' )
-RPROGARGS=( '--user-data-dir=${PROFILE}' '$*' )
-ENVVARS=()
+privlib=0
+use_systemd=1
+profiledir=~/.config/chromium/
+tocopy=( Extensions "Extension State" Preferences )
+destdir="Default"
+progname="/usr/lib/chromium/chromium"
+progargs=( '--user-data-dir=${profile}' '$*' )
+rprogargs=( '--user-data-dir=${profile}' '$*' )
+envvars=()

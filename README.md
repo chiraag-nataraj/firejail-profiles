@@ -21,18 +21,18 @@ An example script, `private-profile.sh`, which makes use of `gen_libraries` is p
 
 A `.private` file defines several application-specific variables. The following variables are recognized:
 
-* `$PRIVLIB` enables the dynamic generation of a `private-lib` filter. If enabled, the following variables should be defined:
-  * `$GENLIB` is the path to the `gen_libraries` path. 
-  * `$LIBDIR` is the path to the application's lib folder.
-  * `$EXTRALIBS` is the list of hard-coded libraries which are not automatically detected.
-* `USE_SYSTEMD` enables `systemd` integration.
-* `PROFILEDIR` is the path to the directory where profiles are stored.
-* `TOCOPY` is the list of files to copy to the temporary profile.
-* `DESTDIR` is the directory to generate inside the temporary profile directory. If set to `""`, then the temporary directory itself is treated as the profile.
-* `PROGNAME` is the command to run.
-* `PROGARGS` is the array of arguments to pass when the program is not already running.
-* `RPROGARGS` is the array of arguments to pass when the program is already running.
-* `ENVVARS` is a bash array used for setting any environment variables (now uses `firejail`'s environment handling!). Set this to an empty array (`()`) if you don't have any environment variables to pass along.
+* `$privlib` enables the dynamic generation of a `private-lib` filter. If enabled, the following variables should be defined:
+  * `$genlib` is the path to the `gen_libraries` path. 
+  * `$libdir` is the path to the application's lib folder.
+  * `$extralibs` is the list of hard-coded libraries which are not automatically detected.
+* `$use_systemd` enables `systemd` integration.
+* `$profiledir` is the path to the directory where profiles are stored.
+* `$tocopy` is the list of files to copy to the temporary profile.
+* `$destdir` is the directory to generate inside the temporary profile directory. If set to `""`, then the temporary directory itself is treated as the profile.
+* `$progname` is the command to run.
+* `$progargs` is the array of arguments to pass when the program is not already running.
+* `$rprogargs` is the array of arguments to pass when the program is already running.
+* `$envvars` is a bash array used for setting any environment variables (now uses `firejail`'s environment handling!). Set this to an empty array (`()`) if you don't have any environment variables to pass along.
 
 There are two example `.private` files in this repo, `private-profiles/firefox.private` and `private-profiles/chromium.private`.
 

@@ -1,12 +1,12 @@
-LIBDIR=/usr/lib/firefox
-EXTRALIBS="nss,pulseaudio,nvidia,python3.6,gconv,libpulse.so.0,libFLAC.so.8,libogg.so.0,libopus.so.0,libvorbis.so.0,libvorbisenc.so.2,libavcodec.so.57,libavutil.so.55,libcrystalhd.so.3,libdrm.so.2,libGL.so.1,libnss_resolve.so.2,libnss_systemd.so.2"
-GENLIB=~/scripts/gen_libraries
-PRIVLIB=1
-USE_SYSTEMD=1
-PROFILEDIR=~/.mozilla/firefox/
-TOCOPY=( extensions browser-extension-data extension-preferences.json extension-settings.json extensions.json prefs.js gmp gmp-widevinecdm gmp-gmpopenh264 search.json.mozlz4 pluginreg.dat )
-DESTDIR=""
-PROGNAME="firefox"
-PROGARGS=( --new-instance --profile '${PROFILE}' '$*' )
-RPROGARGS=( --profile '${PROFILE}' '$*' )
-ENVVARS=( "MOZ_WEBRENDER=1" "MOZ_ACCELERATED=1" )
+libdir=/usr/lib/firefox
+extralibs="nss,pulseaudio,nvidia,python3.6,gconv,libpulse.so.0,libFLAC.so.8,libogg.so.0,libopus.so.0,libvorbis.so.0,libvorbisenc.so.2,libavcodec.so.57,libavutil.so.55,libcrystalhd.so.3,libdrm.so.2,libGL.so.1,libnss_resolve.so.2,libnss_systemd.so.2"
+genlib=~/scripts/gen_libraries
+privlib=1
+use_systemd=1
+profiledir=~/.mozilla/firefox/
+tocopy=( extensions browser-extension-data extension-preferences.json extension-settings.json extensions.json prefs.js gmp gmp-widevinecdm gmp-gmpopenh264 search.json.mozlz4 pluginreg.dat )
+destdir=""
+progname="firefox"
+progargs=( --new-instance --profile '${profile}' '$*' )
+rprogargs=( --profile '${profile}' '$*' )
+envvars=( "MOZ_WEBRENDER=1" "MOZ_ACCELERATED=1" )

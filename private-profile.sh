@@ -1,10 +1,10 @@
 #!/bin/bash
 
-PRIVATE=0
-NAME=""
-COPY=0
-NETNS=""
-RMPROF=0
+private=0
+name=""
+copy=0
+netns=""
+rmprof=0
 
 set -ue
 
@@ -12,17 +12,17 @@ while getopts "p:tcn:" arg
 do
     case ${arg} in
 	p)
-	    PROFILE=${OPTARG}
-	    NAME=$(basename "$PROFILE")
+	    profile=${OPTARG}
+	    name=$(basename "$profile")
 	    ;;
 	t)
-	    PRIVATE=1
+	    private=1
 	    ;;
 	c)
-	    COPY=1
+	    copy=1
 	    ;;
 	n)
-	    NETNS=${OPTARG}
+	    netns=${OPTARG}
 	    ;;
 	*)
 	    exit 1
@@ -32,90 +32,90 @@ done
 
 shift $((OPTIND-1))
 
-VARFILE="$1"
-. "$VARFILE"
+varfile="$1"
+. "$varfile"
 
 shift
 
 vpncmd()
 {
-    systemctl -q is-active openvpn@us3-TCP-chaanakya && NETNS="" || NETNS="$NETNS"
+    systemctl -q is-active openvpn@us3-TCP-chaanakya && netns="" || netns="$netns"
 }
 
-FIREJAIL="firejail"
-FJARGS=( "--nowhitelist=${PROFILEDIR}" )
+firejail="firejail"
+fjargs=( "--nowhitelist=${profiledir}" )
 
 # private-lib generation if enabled
 
-if [ "$PRIVLIB" -eq 1 ]
+if [ "$privlib" -eq 1 ]
 then
-    . "$GENLIB"
-    LIBS=$(compile_list "${LIBDIR}" "${EXTRALIBS}")
-    FJARGS+=( "--private-lib=$LIBS" )
+    . "$genlib"
+    libs=$(compile_list "${libdir}" "${extralibs}")
+    fjargs+=( "--private-lib=$libs" )
 fi
 
 # Deal with creating a private profile if requested
 
-if [ "$PRIVATE" -eq 1 ]
+if [ "$private" -eq 1 ]
 then
-    SRCDIR="${PROFILE}"
-    PROFILE=$(mktemp -d -p "${PROFILEDIR}")
-    NAME=$(basename "$PROFILE")
-    if [ "${DESTDIR}" != "" ]
+    nprofile=$(mktemp -d -p "${profiledir}")
+    name=$(basename "$nprofile")
+    if [ "${destdir}" != "" ]
     then
-	mkdir "${PROFILE}"/"${DESTDIR}"
+	mkdir "${nprofile}"/"${destdir}"
     fi
-    RMPROF=1
-    if [ "$COPY" -eq 1 ]
+    rmprof=1
+    if [ "$copy" -eq 1 ]
     then
-	for i in "${TOCOPY[@]}"
+	for i in "${tocopy[@]}"
 	do
-	    cp -R "${SRCDIR}"/"${i}" "${PROFILE}"/"${DESTDIR}"/"${i}"
+	    cp -R "${profile}"/"${i}" "${nprofile}"/"${destdir}"/"${i}"
 	done
     fi
+    profile="$nprofile"
 fi
 
-SPROGNAME=$(basename "${PROGNAME}")
+sprogname=$(basename "${progname}")
 
-FJARGS+=( "--whitelist=${PROFILE}" "--name=${SPROGNAME}-${NAME}" )
+fjargs+=( "--whitelist=${profile}" "--name=${sprogname}-${name}" )
 
 vpncmd
 
-if [ "$NETNS" != "" ]
+if [ "$netns" != "" ]
 then
-    FJARGS+=( "--net=${NETNS}" )
+    fjargs+=( "--net=${netns}" )
 fi
 
-for i in "${ENVVARS[@]}"
+for i in "${envvars[@]}"
 do
-    FJARGS+=( "--env=${i}" )
+    fjargs+=( "--env=${i}" )
 done
 
-CMD="${FIREJAIL} ${FJARGS[*]} -- ${PROGNAME} $(eval echo "${PROGARGS[@]}")"
-RCMD="${PROGNAME} $(eval echo "${RPROGARGS[@]}")"
+cmd="${firejail} ${fjargs[*]} -- ${progname} $(eval echo "${progargs[@]}")"
+rcmd="${progname} $(eval echo "${rprogargs[@]}")"
 
-SYSTEMDCMD="systemd-run --wait --user --unit=${SPROGNAME}-${NAME}.service --description=${SPROGNAME}-${NAME}"
+systemdcmd="systemd-run --wait --user --unit=${sprogname}-${name}.service --description=${sprogname}-${name}"
 
 # systemd-specific behavior if enabled
 
-if [ "$USE_SYSTEMD" -eq 1 ]
+if [ "$use_systemd" -eq 1 ]
 then
-    RUNNING=$(systemctl --user --quiet is-active "${SPROGNAME}-${NAME}".service; echo $?)
-    CMD="${SYSTEMDCMD} ${CMD}"
+    running=$(systemctl --user --quiet is-active "${sprogname}-${name}".service; echo $?)
+    cmd="${systemdcmd} ${cmd}"
 else
-    RUNNING=$(pgrep -f "${PROG}" > /dev/null; echo $?)
+    running=$(pgrep -f "${progname} $(eval echo "${progargs[@]}")" > /dev/null; echo $?)
 fi
 
-if [ "$RUNNING" -eq 0 ]
+if [ "$running" -eq 0 ]
 then
-    $RCMD
+    $rcmd
 else
-    $CMD
+    $cmd
 fi
 
 # Remove profile if asked
 
-if [ "$RMPROF" -eq 1 ]
+if [ "$rmprof" -eq 1 ]
 then
-    rm -r "${PROFILE}"
+    rm -r "${profile}"
 fi
