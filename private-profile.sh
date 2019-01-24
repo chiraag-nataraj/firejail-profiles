@@ -1,18 +1,37 @@
 #!/bin/bash
 
 private=0
+privlib=0
+use_systemd=0
 name=""
 copy=0
 netns=""
 rmprof=0
+to_copy=()
+evvars=()
 
-set -ue
+exitm()
+{
+    echo "$1"
+    rmprof
+    exit 1
+}
+
+rmprof()
+{
+    if [[ "$rmprof" -eq 1 && -n "${profile+x}" ]]
+    then
+	rm -r "${profile}"
+    fi
+}
+
+set -e
 
 while getopts "p:tcn:" arg
 do
     case ${arg} in
 	p)
-	    profile=${OPTARG}
+	    profile="${OPTARG}"
 	    name=$(basename "$profile")
 	    ;;
 	t)
@@ -22,7 +41,7 @@ do
 	    copy=1
 	    ;;
 	n)
-	    netns=${OPTARG}
+	    netns="${OPTARG}"
 	    ;;
 	*)
 	    exit 1
@@ -37,6 +56,11 @@ varfile="$1"
 
 shift
 
+if [[ -z "${progname:+x}" ||  -z "${profiledir:+x}" ]]
+then
+    exitm '$progname and $profiledir must be specified and cannot be empty strings!'
+fi
+
 vpncmd()
 {
     systemctl -q is-active openvpn@us3-TCP-chaanakya && netns="" || netns="$netns"
@@ -49,6 +73,10 @@ fjargs=( "--nowhitelist=${profiledir}" )
 
 if [ "$privlib" -eq 1 ]
 then
+    if [[ -z "${genlib+x}" || -z "${libdir+x}" ]]
+    then
+	exitm '$genlib and $libdir must all be set for $privlib!'
+    fi
     . "$genlib"
     libs=$(compile_list "${libdir}" "${extralibs}")
     fjargs+=( "--private-lib=$libs" )
@@ -58,6 +86,10 @@ fi
 
 if [ "$private" -eq 1 ]
 then
+    if [[ -z "${destdir+x}" ]]
+    then
+	exitm '$destdir must be specified (even if it is an empty string)!'
+    fi
     nprofile=$(mktemp -d -p "${profiledir}")
     name=$(basename "$nprofile")
     if [ "${destdir}" != "" ]
@@ -67,12 +99,21 @@ then
     rmprof=1
     if [ "$copy" -eq 1 ]
     then
+	if [[ -z "${profile+x}" ]]
+	then
+	    exitm 'A profile must be specified on the command-line if copying is enabled!'
+	fi
 	for i in "${tocopy[@]}"
 	do
 	    cp -R "${profile}"/"${i}" "${nprofile}"/"${destdir}"/"${i}"
 	done
     fi
     profile="$nprofile"
+fi
+
+if [[ -z "${profile+x}" ]]
+then
+    exitm 'Either $profile must be specified on the command-line or a temporary profile must be requested!'
 fi
 
 sprogname=$(basename "${progname}")
@@ -90,6 +131,11 @@ for i in "${envvars[@]}"
 do
     fjargs+=( "--env=${i}" )
 done
+
+if [[ -z "${progargs+x}" || -z "${rprogargs+x}" ]]
+then
+    exitm '$progargs and $rprogargs must be specified (even if as empty arrays)!'
+fi
 
 cmd="${firejail} ${fjargs[*]} -- ${progname} $(eval echo "${progargs[@]}")"
 rcmd="${progname} $(eval echo "${rprogargs[@]}")"
@@ -115,7 +161,4 @@ fi
 
 # Remove profile if asked
 
-if [ "$rmprof" -eq 1 ]
-then
-    rm -r "${profile}"
-fi
+rmprof

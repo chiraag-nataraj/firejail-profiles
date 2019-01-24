@@ -6,9 +6,10 @@ ignore memory-deny-write-execute
 
 include ${HOME}/.config/firejail/common.inc
 
-mkdir ${HOME}/.mozilla/firefox
+mkdir ${HOME}/.config/mozilla/firefox
 
-whitelist ${HOME}/.mozilla/firefox
+# whitelist ${HOME}/.mozilla
+whitelist ${HOME}/.config/mozilla/firefox
 whitelist ${DOWNLOADS}
 whitelist ${HOME}/.pulse
 whitelist ${HOME}/.cache/mozilla/firefox
@@ -16,9 +17,9 @@ whitelist ${HOME}/.config/pulse
 whitelist ${HOME}/.config/gtk-3.0
 whitelist ${HOME}/.gtkrc-2.0
 whitelist ${HOME}/.gtkrc.mine
-whitelist ${HOME}/.themes
+whitelist ${HOME}/.local/share/themes
 
-private-bin firefox,firefox-esr,which,sh,env
+private-bin firefox,firefox-esr,which,sh,env,bash
 private-etc hosts,passwd,mime.types,fonts,mailcap,firefox,xdg,gtk-3.0,X11,pulse,alternatives,localtime,nsswitch.conf,resolv.conf
 
 # Disabled for now because it crashes certain sites
@@ -32,3 +33,4 @@ private-etc hosts,passwd,mime.types,fonts,mailcap,firefox,xdg,gtk-3.0,X11,pulse,
 # whitelist /usr/share/zoneinfo
 # whitelist /usr/share/locale
 # whitelist /usr/share/glib-2.0
+blacklist /usr/share/fonts/truetype/unifont

@@ -1,11 +1,11 @@
 include ${HOME}/.config/firejail/common.inc
 
 mkdir ${HOME}/mpd
-mkfile ${HOME}/.mpdconf
+mkfile ${HOME}/.config/mpd/mpd.conf
 
 whitelist ${MUSIC}
-whitelist ${HOME}/mpd
-whitelist ${HOME}/.mpdconf
+whitelist ${HOME}/.local/share/mpd
+whitelist ${HOME}/.config/mpd/
 whitelist ${HOME}/.config/pulse/
 whitelist ${HOME}/.pulse/
 read-only ${MUSIC}

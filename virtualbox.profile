@@ -14,7 +14,7 @@ mkdir ${HOME}/.config/VirtualBox
 mkfile ${HOME}/.config/Trolltech.conf
 
 whitelist ${DOWNLOADS}
-whitelist ${HOME}/VirtualBox_VMs
+whitelist ${HOME}/.local/share/vms/vbox
 whitelist ${HOME}/.config/VirtualBox
 whitelist ${HOME}/.gtkrc-2.0
 whitelist ${HOME}/.gtkrc.mine

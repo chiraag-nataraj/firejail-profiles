@@ -3,7 +3,7 @@ ignore net none
 include ${HOME}/.config/firejail/common.inc
 
 whitelist ${DOWNLOADS}
-whitelist ${HOME}/.elinks
+whitelist ${HOME}/.config/elinks
 
 private-bin elinks
 private-lib

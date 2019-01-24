@@ -6,9 +6,10 @@ ignore memory-deny-write-execute
 
 include ${HOME}/.config/firejail/common.inc
 
-mkdir ${HOME}/.ViberPC
+mkdir ${HOME}/.config/ViberPC
 
 whitelist ${HOME}/.ViberPC
+whitelist ${HOME}/.config/ViberPC
 whitelist ${DOWNLOADS}
 
 private-bin sh,dig,awk,xdg-mime,cut,touch,mv

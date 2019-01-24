@@ -1,5 +1,5 @@
 ignore private-tmp
-ignore private-dev
+ignore noexec ${HOME}
 
 include ${HOME}/.config/firejail/common.inc
 
@@ -9,22 +9,18 @@ include ${HOME}/.config/firejail/common.inc
 whitelist /tmp/user/1000/
 whitelist /tmp/.X11-unix/
 
-mkfile ${HOME}/.emacs
-mkdir ${HOME}/.emacs.d
-mkdir ${HOME}/emacs_tmp/
+mkdir ${HOME}/.config/emacs
 
 whitelist ${DOWNLOADS}
 whitelist ${DOCUMENTS}
-whitelist ${HOME}/.emacs
 whitelist ${HOME}/.emacs.d
+whitelist ${HOME}/.config/emacs
 whitelist ${HOME}/.config/gtk-3.0
-whitelist ${HOME}/.gnupg
-whitelist ${HOME}/.git
-whitelist ${HOME}/mpd/socket
-whitelist ${HOME}/texmf
-whitelist ${HOME}/emacs_tmp
+whitelist ${HOME}/.local/share/fonts
+whitelist ${HOME}/.local/share/texmf
 
 keep-var-tmp
 writable-var
 writable-run-user
 keep-dev-shm
+

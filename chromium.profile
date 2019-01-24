@@ -14,7 +14,7 @@ mkdir ${HOME}/.config/chromium
 
 whitelist ${HOME}/.config/chromium
 whitelist ${HOME}/.themes
-whitelist ${HOME}/.gtkrc-2.0
+whitelist ${HOME}/.config/gtk-3.0
 
 whitelist ${DOWNLOADS}
 
@@ -37,3 +37,4 @@ private-etc fonts,alternatives,X11,pulse,resolv.conf,localtime,chromium.d
 # whitelist /dev/zero
 
 caps.keep sys_chroot,sys_admin
+blacklist /usr/share/fonts/truetype/unifont

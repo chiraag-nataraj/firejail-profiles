@@ -3,7 +3,8 @@ ignore private-tmp
 
 include ${HOME}/.config/firejail/common.inc
 
-whitelist ${HOME}/.newsboat
+whitelist ${HOME}/.config/newsboat
+whitelist ${HOME}/.local/share/newsboat
 
 whitelist /tmp/user/1000/
 whitelist /tmp/.X11-unix/X0
