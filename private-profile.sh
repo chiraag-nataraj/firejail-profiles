@@ -3,6 +3,7 @@
 private=0
 privlib=0
 use_systemd=0
+use_firejail=0
 name=""
 copy=0
 netns=""
@@ -25,7 +26,7 @@ rmprof()
     fi
 }
 
-set -e
+set -eu
 
 while getopts "p:tcn:" arg
 do
@@ -78,7 +79,7 @@ then
 	exitm '$genlib and $libdir must all be set for $privlib!'
     fi
     . "$genlib"
-    libs=$(compile_list "${libdir}" "${extralibs}")
+    libs=$(compile_list "${libdir}" "${extralibs:-}")
     fjargs+=( "--private-lib=$libs" )
 fi
 
@@ -86,13 +87,9 @@ fi
 
 if [ "$private" -eq 1 ]
 then
-    if [[ -z "${destdir+x}" ]]
-    then
-	exitm '$destdir must be specified (even if it is an empty string)!'
-    fi
     nprofile=$(mktemp -d -p "${profiledir}")
     name=$(basename "$nprofile")
-    if [ "${destdir}" != "" ]
+    if [ "${destdir:=}" != "" ]
     then
 	mkdir "${nprofile}"/"${destdir}"
     fi
@@ -132,17 +129,23 @@ do
     fjargs+=( "--env=${i}" )
 done
 
-if [[ -z "${progargs+x}" || -z "${rprogargs+x}" ]]
-then
-    exitm '$progargs and $rprogargs must be specified (even if as empty arrays)!'
-fi
+progargs="${progargs:-}"
+rprogargs="${rprogargs:-}"
 
-cmd="${firejail} ${fjargs[*]} -- ${progname} $(eval echo "${progargs[@]}")"
+cmd="${progname} $(eval echo "${progargs[@]}")"
 rcmd="${progname} $(eval echo "${rprogargs[@]}")"
 
+fjcmd="${firejail} ${fjargs[*]} --"
 systemdcmd="systemd-run --wait --user --unit=${sprogname}-${name}.service --description=${sprogname}-${name}"
 
-# systemd-specific behavior if enabled
+if [ "$use_firejail" -eq 1 ]
+then
+    cmd="${fjcmd} ${cmd}"
+    rcmd="${fjcmd} ${rcmd}"
+else
+    cmd="/usr/bin/env ${envvars[*]} ${cmd}"
+    rcmd="/usr/bin/env ${envvars[*]} ${rcmd}"
+fi
 
 if [ "$use_systemd" -eq 1 ]
 then

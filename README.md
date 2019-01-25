@@ -24,15 +24,16 @@ A `.private` file defines several application-specific variables. The following 
 * `$privlib` enables the dynamic generation of a `private-lib` filter. If enabled, the following variables should be defined:
   * `$genlib` is the path to the `gen_libraries` path. 
   * `$libdir` is the path to the application's lib folder.
-  * `$extralibs` is the list of hard-coded libraries which are not automatically detected.
+  * `$extralibs` [optional] is the list of hard-coded libraries which are not automatically detected. Can be left unset if no hard-coded libraries are required.
 * `$use_systemd` enables `systemd` integration.
+* `$use_firejail` enables `firejail` integration.
 * `$profiledir` is the path to the directory where profiles are stored.
 * `$tocopy` is the list of files to copy to the temporary profile.
-* `$destdir` is the directory to generate inside the temporary profile directory. If set to `""`, then the temporary directory itself is treated as the profile.
+* `$destdir` [optional] is the directory to generate inside the temporary profile directory. If set to `""` or unset, then the temporary directory itself is treated as the profile.
 * `$progname` is the command to run.
 * `$progargs` is the array of arguments to pass when the program is not already running.
 * `$rprogargs` is the array of arguments to pass when the program is already running.
-* `$envvars` is a bash array used for setting any environment variables (now uses `firejail`'s environment handling!). Set this to an empty array (`()`) if you don't have any environment variables to pass along.
+* `$envvars` [optional] is a bash array used for setting any environment variables (now uses `firejail`'s environment handling!). If set to an empty array (`()`) or unset, no extra environment variables are passed along.
 
 There are two example `.private` files in this repo, `private-profiles/firefox.private` and `private-profiles/chromium.private`.
 

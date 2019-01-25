@@ -1,9 +1,10 @@
 privlib=0
 use_systemd=1
+use_firejail=1
 profiledir=~/.config/chromium/
 tocopy=( Extensions "Extension State" Preferences )
 destdir="Default"
 progname="/usr/lib/chromium/chromium"
 progargs=( '--user-data-dir=${profile}' '$*' )
 rprogargs=( '--user-data-dir=${profile}' '$*' )
-envvars=()
+# envvars=()
