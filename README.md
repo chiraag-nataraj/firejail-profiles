@@ -79,6 +79,7 @@ List of currently-supported programs:
 * LMMS
 * Luminance HDR
 * Macrofusion
+* Matlab
 * Messenger For Desktop
 * MPD
 * mps-youtube (mpsyt)
