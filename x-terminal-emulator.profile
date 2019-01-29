@@ -2,6 +2,7 @@ ignore nodbus
 ignore private-tmp
 ignore memory-deny-write-execute
 ignore noexec ${HOME}
+ignore blacklist /usr/local/bin
 
 include ${HOME}/.config/firejail/common.inc
 
