@@ -20,8 +20,11 @@ compile_list()
     PRIMARY="$1"
     # $SECONDARY is an explicit list of additional libraries the program needs (beyond the ones that show up in ldd)
     SECONDARY="$2"
-    LIBS=(`find "$PRIMARY" -type f -print0 | while IFS= read -r -d '' file; do get_deps "$file"; done | sort | uniq`)
-    LIBFLDRS=(`find "$PRIMARY" -type f -print0 | while IFS= read -r -d '' file; do get_folders "$file"; done | sort | uniq`)
-    LIBS2=(`echo "$SECONDARY" | tr ',' ' '`)
+    mapfile -t LIBS < <(find "$PRIMARY" -type f -print0 | while IFS= read -r -d '' file; do get_deps "$file"; done | sort | uniq | tr -d '^\t' | tr -d ' $')
+    # LIBS=($(find "$PRIMARY" -type f -print0 | while IFS= read -r -d '' file; do get_deps "$file"; done | sort | uniq))
+    mapfile -t LIBFLDRS < <(find "$PRIMARY" -type f -print0 | while IFS= read -r -d '' file; do get_folders "$file"; done | sort | uniq | tr -d '^\t' | tr -d ' $')
+    # LIBFLDRS=($(find "$PRIMARY" -type f -print0 | while IFS= read -r -d '' file; do get_folders "$file"; done | sort | uniq))
+    mapfile -d ',' -t LIBS2 < <(echo -n "$SECONDARY")
+    # LIBS2=($(echo "$SECONDARY" | tr ',' ' '))
     echo "${LIBS[@]}" "${LIBFLDRS[@]}" "${LIBS2[@]}" | tr ' ' ','
 }
