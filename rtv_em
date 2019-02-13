@@ -1,0 +1,4 @@
+#!/bin/bash
+cp "${1}" /tmp/user/1000/emacs1000/
+/usr/bin/env emacshelper "/tmp/user/1000/emacs1000/$(basename ${1})"
+mv /tmp/user/1000/emacs1000/"$(basename ${1})" "${1}"
