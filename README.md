@@ -57,6 +57,7 @@ List of currently-supported programs:
 * Discord
 * Dropbox
 * ELinks
+* Feh
 * Fetchmail
 * Firefox (regular and ESR)
 * Flameshot
@@ -90,6 +91,7 @@ List of currently-supported programs:
 * Newsboat
 * OpenShot
 * Pidgin
+* ping
 * Qemu (VMs should be stored in `${HOME}/qemu-vms` or edit `qemu-system-common.profile` to whitelist the folder you store your VMs in) - profiles included for `qemu-system-{i386,x86_64}`, but you can create your own by building off of `qemu-system-common.profile`
 * QPDFView
 * Ricochet
