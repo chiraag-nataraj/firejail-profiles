@@ -6,6 +6,7 @@ include quodlibet.local
 include globals.local
 
 noblacklist ${MUSIC}
+noblacklist ${HOME}/.cache/quodlibet
 noblacklist ${HOME}/.config/quodlibet
 
 include disable-common.inc
@@ -32,7 +33,6 @@ seccomp
 shell none
 tracelog
 
-private-bin quodlibet
 private-dev
 private-tmp
 
