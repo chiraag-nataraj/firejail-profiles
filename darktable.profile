@@ -1,3 +1,5 @@
+ignore no3d
+
 include ${HOME}/.config/firejail/common.inc
 
 mkdir ${HOME}/.config/darktable

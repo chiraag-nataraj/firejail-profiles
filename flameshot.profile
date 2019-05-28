@@ -1,4 +1,5 @@
 ignore memory-deny-write-execute
+ignore no3d
 
 include ${HOME}/.config/firejail/common.inc
 

@@ -1,7 +1,10 @@
 ignore private-dev
 ignore nou2f
-ignore net
+ignore net none
 ignore nodbus
+ignore nosound
+ignore novideo
+ignore no3d
 ignore memory-deny-write-execute
 
 include ${HOME}/.config/firejail/common.inc

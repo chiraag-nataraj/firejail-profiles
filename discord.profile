@@ -1,4 +1,7 @@
 ignore net none
+ignore nosound
+ignore novideo
+ignore no3d
 ignore memory-deny-write-execute
 ignore private-tmp
 ignore apparmor

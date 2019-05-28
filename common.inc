@@ -6,6 +6,12 @@ blacklist /boot
 private-tmp
 read-only /tmp/.X11-unix
 private-dev
+nodvd
+nosound
+notv
+nou2f
+novideo
+no3d
 disable-mnt
 private-opt emp
 private-srv emp
@@ -20,7 +26,6 @@ nonewprivs
 ipc-namespace
 machine-id
 nodbus
-nou2f
 nogroups
 net none
 netfilter
@@ -28,3 +33,4 @@ memory-deny-write-execute
 
 noexec ${HOME}
 noexec /tmp
+noexec ${RUNUSER}
