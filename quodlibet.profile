@@ -1,41 +1,14 @@
-# Firejail profile for quodlibet
-# This file is overwritten after every install/update
-# Persistent local customizations
-include quodlibet.local
-# Persistent global definitions
-include globals.local
+ignore net
+ignore nodbus
 
-noblacklist ${MUSIC}
-noblacklist ${HOME}/.cache/quodlibet
-noblacklist ${HOME}/.config/quodlibet
-
-include disable-common.inc
-include disable-devel.inc
-include disable-passwdmgr.inc
-include disable-programs.inc
-include disable-xdg.inc
-
-include whitelist-var-common.inc
-
-# apparmor - makes settings immutable
-caps.drop all
-netfilter
-# no3d
-# nodbus - makes settings immutable
-nogroups
-nonewprivs
-noroot
 notv
-nou2f
 novideo
-protocol unix,inet,inet6
-seccomp
-shell none
-tracelog
 
-private-dev
-private-tmp
+include ${HOME}/.config/firejail/common.inc
 
-noexec ${HOME}
-noexec /tmp
+mkdir $ {HOME}/.config/quodlibet
 
+whitelist ${MUSIC}
+whitelist ${HOME}/.config/quodlibet
+
+private-bin quodlibet
