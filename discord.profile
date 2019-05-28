@@ -16,5 +16,8 @@ whitelist ${DOWNLOADS}
 
 private-bin discord
 
+mkdir /tmp/user/1000/discord1000/
+
 whitelist /tmp/.X11-unix
-whitelist /tmp/user/1000
+whitelist /tmp/user/1000/discord1000/
+env TMPDIR=/tmp/user/1000/discord1000
