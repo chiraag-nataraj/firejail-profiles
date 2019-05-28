@@ -1,5 +1,8 @@
 ignore private-opt
 ignore nodbus
+ignore nosound
+ignore novideo
+ignore no3d
 ignore net
 ignore machine-id
 ignore memory-deny-write-execute
