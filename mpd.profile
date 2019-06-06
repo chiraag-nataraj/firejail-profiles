@@ -1,6 +1,7 @@
+ignore nosound
+
 include ${HOME}/.config/firejail/common.inc
 
-mkdir ${HOME}/mpd
 mkfile ${HOME}/.config/mpd/mpd.conf
 
 whitelist ${MUSIC}
@@ -11,7 +12,7 @@ whitelist ${HOME}/.pulse/
 read-only ${MUSIC}
 
 private-bin mpd,bash
-private-etc emp
+# private-etc alternatives
 private-lib
 
 blacklist /usr/share/
